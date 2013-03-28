@@ -1,0 +1,28 @@
+{% extends themeRootFile %}
+
+{% block pageContent %}
+    <article class="weapon weapon-{{ weapon.slug }}">
+
+      <header>{{weapon.name}}</header>
+      <img src="{{ship.img.url}}" alt="{{ship.img.alt}} ">
+      <div class="content">
+          {{weapon.desc}}
+      </div>
+
+      <dl class="">
+        <dt>Size</dt><dd>{{weapon.size}}</dd>
+        <dt>Crew Space</dt><dd>{{weapon.crewSpace}}</dd>
+        <dt>Type</dt><dd>{{weapon.category}}</dd>
+        <hr>
+        <dt>Range</dt><dd>{{weapon.range}}</dd> 
+        <dt>Damage</dt><dd>{{weapon.damage}}</dd>
+        <dt>Reload</dt><dd>{{weapon.reload}}</dd>
+        <hr>
+        <dt>Costs</dt><dd>{{weapon.cost}}</dd>
+      </dl>
+
+
+    </article>
+
+
+{% endblock %}
