@@ -1,1 +1,24 @@
+{% extends themeRootFile %}
+
+{% block pageContent %}
+    <article class="slot slot-{{ slot.slug }}">
+
+        <header>{{slot.name}}</header>
+				<img src="{{ship.img.url}}" alt="{{ship.img.alt}} ">
+        <div class="content">
+            {{slot.desc}}
+        </div>
+
+			<dl class="">
+				<dt>Size</dt><dd>{{slot.size}}</dd>
+				<dt>Crew</dt><dd>{{slot.crew}}</dd>
+				<dt>Type</dt><dd>{{slot.type}}</dd>
+				<dt>Mod Type</dt><dd>{{slot.modType}}</dd> 
+				<dt>Costs</dt><dd>{{slot.cost}}</dd>
+			</dl>
+
+
+        
+    </article>
+{% endblock %}
 
