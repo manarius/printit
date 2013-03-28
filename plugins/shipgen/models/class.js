@@ -12,8 +12,8 @@ module.exports = function(app) {
             minSize:   { type: Number, default: 1, min: levels.min, max: levels.max },
             maxSize:   { type: Number, default: 1, min: levels.min, max: levels.max },
             
-            crewMin:   { type: Number, default: 0, min: levels.min, max: levels.max },
-            crewMax:   { type: Number, default: 0, min: levels.min, max: levels.max },
+            //~ crewMin:   { type: Number, default: 0, min: levels.min, max: levels.max },
+            //~ crewMax:   { type: Number, default: 0, min: levels.min, max: levels.max },
         
             cost:      { type: Number, default: 1, min: levels.min }
         });

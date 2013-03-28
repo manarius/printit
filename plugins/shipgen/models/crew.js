@@ -8,7 +8,7 @@ module.exports = function(app) {
             name: { type: String, default: '', length: 50},
             slug: { type: String, default: '', length: 50},
             published: { type: Boolean, default: false },
-            type: { type: String, default: 'common' },
+            category: { type: String, default: 'common' },
             
             size: { type: Number, default: 1, min: levels.min, max: levels.max },
             cost: { type: Number, default: 1, min: levels.min } //(cost in resources to build this ship)

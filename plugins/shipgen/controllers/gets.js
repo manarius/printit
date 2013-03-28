@@ -3,10 +3,17 @@
 var path = require('path'),
     fs = require('fs');
 
+exports.mods = function (req, res, next) {
+    var modSlug = req.params.modSlug;
+    
+    res.render('shipgen/' + modSlug + '.html');
+}
+
 exports.shipList = function (req, res, next) {
+
     var config = req.app.plugins.shipgen.config[req.app.get('env')],
         shipgenRootDir = '/' + config.rootUrl + '/',
-        shipDir = path.join(req.app.get('views'), req.app.get('theme'), 'blog', 'ships'),
+        shipDir = path.join(req.app.get('views'), req.app.get('theme'), 'shipgen'),
         Ship = req.app.plugins.shipgen.models.ship,
         shipCount,
         pagination = config.pagination,
@@ -47,10 +54,6 @@ exports.shipList = function (req, res, next) {
         var where = {
             published: true
         };
-
-        if (category) {
-            where.category = category;
-        }
 
         Ship.all({where: where, order: 'updated DESC', limit: perpage, skip: skip}, function (err, ships) {
             if (!ships || ships.length <= 0) {
