@@ -7,7 +7,7 @@ module.exports = function(app) {
             name: { type: String, default: '', length: 50},
             slug: { type: String, default: '', length: 50},
             published: { type: Boolean, default: false },
-            type: { type: String, default: 'common' },
+            category: { type: String, default: 'common' },
 
             classID: {type: app.Schema.ObjectID, default: null },
 
