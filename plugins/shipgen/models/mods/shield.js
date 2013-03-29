@@ -15,7 +15,7 @@ module.exports = function(app) {
             //~ crewSpace: { type: Number, default: 0, min: 0, max: levels.max },
             
             shield: { type: Number, default: levels.min, min: levels.min, max: levels.max },
-            refill: { type: Number, default: levels.min, min: levels.min, max: levels.max },
+            recharge: { type: Number, default: levels.min, min: levels.min, max: levels.max },
             
             cost: { type: Number, default: levels.min, min: levels.min }
         });

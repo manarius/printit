@@ -11,8 +11,12 @@ module.exports = function(app) {
             name: { type: String, default: '', length: 50},
             slug: { type: String, default: '', length: 50},
             published: { type: Boolean, default: false },
+<<<<<<< HEAD
             category: { type: String, default: 'common' },
 
+=======
+           
+>>>>>>> ee221bb38722308aed918cb14bdb2d0fd59903b9
             size: { type: Number, default: levels.min, min: levels.min, max: levels.max },
 
             //~ crew: { type: Number, default: levels.min, min: levels.min, max: levels.max },

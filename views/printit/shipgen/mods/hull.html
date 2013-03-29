@@ -2,28 +2,22 @@
 
 {% block pageContent %}
     <article class="hull hull-{{ hull.slug }}">
+    <header>{{hull.name}}</header>
+    <img src="{{hull.img.url}}" alt="{{hull.img.alt}} ">
 
-      <header>{{hull.name}}</header>
-			<img src="{{hull.img.url}}" alt="{{hull.img.alt}} ">
-      <div class="content">
-          {{hull.desc}}
-      </div>
+    <div class="content">
+      {{hull.desc}}
+    </div>
 
-			<dl class="">
-				<dt>Size</dt><dd>{{hull.size}}</dd>
-				<dt>Crew Space</dt><dd>{{hull.crewSpace}}</dd>
-				<dt>Type</dt><dd>{{hull.type}}</dd>
-				<hr>
-				<dt>Armor</dt><dd>{{hull.armor}}</dd> 
-				<dt>Repair</dt><dd>{{hull.repair}}</dd>
-				<hr>
-				<dt>Costs</dt><dd>{{hull.cost}}</dd>
-			</dl>
-
-
-
-       
-    </article>
-
+    <dl class="">
+      <dt>Size</dt><dd>{{hull.size}}</dd>
+      <dt>Category</dt><dd>{{hull.category}}</dd>
+      <hr>
+      <dt>Armor</dt><dd>{{hull.armor}}</dd> 
+      <dt>Repair</dt><dd>{{hull.repair}}</dd>
+      <hr>
+      <dt>Costs</dt><dd>{{hull.cost}}</dd>
+    </dl>
+  </article>
 
 {% endblock %}

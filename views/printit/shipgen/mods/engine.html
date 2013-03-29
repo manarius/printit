@@ -4,24 +4,21 @@
     <article class="engine engine-{{ engine.slug }}">
 
         <header>{{engine.name}}</header>
-				<img src="{{ship.img.url}}" alt="{{ship.img.alt}} ">
+        <img src="{{engine.img.url}}" alt="{{engine.img.alt}} ">
         <div class="content">
             {{engine.desc}}
         </div>
 
-        
-
-			<dl class="">
-				<dt>Size</dt><dd>{{hull.size}}</dd>
-				<dt>Crew Space</dt><dd>{{hull.crewSpace}}</dd>
-				<dt>Type</dt><dd>{{hull.type}}</dd>
-				<hr>
-				<dt>Velocity</dt><dd>{{hull.speed}}</dd> 
-				<dt>Acceleration</dt><dd>{{hull.acceleration}}</dd>
-				<dt>Consumption</dt><dd>{{hull.consumption}}</dd>
-				<hr>
-				<dt>Costs</dt><dd>{{hull.cost}}</dd>
-			</dl>
+      <dl class="">
+        <dt>Size</dt><dd>{{engine.size}}</dd>
+        <dt>Type</dt><dd>{{engine.category}}</dd>
+        <hr>
+        <dt>Velocity</dt><dd>{{engine.speed}}</dd> 
+        <dt>Acceleration</dt><dd>{{engine.acceleration}}</dd>
+        <dt>Consumption</dt><dd>{{engine.consumption}}</dd>
+        <hr>
+        <dt>Costs</dt><dd>{{engine.cost}}</dd>
+      </dl>
 
 
     </article>
