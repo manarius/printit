@@ -1,12 +1,13 @@
 "use strict";
 
+var mongoose = require('mongoose');
+
 module.exports = function(app) {
-    
     // define models
-    var Page = app.schema.define('Page', {
+    var pageSchema = new app.Schema({
         title:     { type: String, length: 255 },
         slug:      { type: String, length: 255 },
-        content:   { type: app.Schema.Text },
+        content:   { type: String, length: 500 },
         footer:    { type: String, length: 255 },
         author:    { type: String, length: 25 },
         date:      { type: Date,    default: Date.now },
@@ -15,5 +16,6 @@ module.exports = function(app) {
         meta:      { type: Object }
     });
     
-    return Page;
+    return mongoose.model('Page', pageSchema);
+
 }

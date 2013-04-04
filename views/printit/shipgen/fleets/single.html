@@ -1,0 +1,32 @@
+{% extends themeRootFile %}
+
+{% block pageContent %}
+    <article class="object object-{{ object.slug }}">
+        <header>
+            <img src="/img/fleets/{{object.slug}}.png" alt="{{object.name}}" title="{{object.name}}" />
+            <dl class="meta">
+                <dt>Name:</dt><dd>{{object.name}}</dd>
+                <hr/>
+                <dt>CostMultiply:</dt><dd>{{object.costMultiply}}</dd>
+            </dl>
+        </header>
+        
+        <div class="desc">
+            {{object.desc}}
+        </div>
+        
+        <div class="ships">
+            <header>ships in this fleet:</header>
+            {% for ship in ships %}
+                <a href="/shipgen/ships/{{ship.slug}}">{{ship.name}}</a>
+            {% endfor %}
+        </div>
+        
+        <div class="crews">
+            <header>crews in this fleet:</header>
+            {% for crew in crews %}
+                <a href="/shipgen/crews/{{crew.slug}}">{{crew.name}}</a>
+            {% endfor %}
+        </div>
+    </article>
+{% endblock %}

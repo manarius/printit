@@ -1,0 +1,48 @@
+{% extends themeRootFile %}
+
+{% block title %}{{ config.title|raw }} - ships{% endblock %}
+
+{% block pageContent %}
+
+    {% for object in objects %}
+        <article class="object object-{{ object.slug }}">
+            <header>
+                <a href="/shipgen/ships/{{object.slug}}"><img src="/img/ships/{{object.slug}}.png" alt="{{object.name}} - {{object.category}}" title="{{object.name}} - {{object.category}}" /></a>
+                
+                <dl class="meta">
+                    <dt>Name:</dt>
+                    <dd><a href="/shipgen/ships/{{object.slug}}">{{object.name}}</a></dd>
+                    <hr/>
+                    
+                    <dt>Category:</dt>
+                    <dd>{{object.category}}</dd>
+                    <hr/>
+                    
+                    <dt>Class:</dt>
+                    <dd><a href="/shipgen/classes/{{object.class.slug}}">{{object.class.name}}</a></dd>
+                </dl>
+            </header>
+
+            <div class="values">
+                <dl class="attributes">
+                    <dt>Size:</dt>
+                    <dd>{{object.size}} cm</dd>
+                    <hr>
+                    
+                    <dt>Cost:</dt>
+                    <dd>{{object.cost}} pts</dd>
+                </dl>
+                
+                <div class="excerpt">{{object.excerpt}}</div>
+            </div>
+            <footer>
+                <div class="fleets">
+                    <header>fleets that use this ship:</header>
+                    {% for fleet in object.fleets %}
+                    <a href="/shipgen/fleets/{{fleet.slug}}">{{fleet.name}}</a>
+                    {% endfor %}
+                </div>
+            </footer>
+        </article>
+    {% endfor %}  
+{% endblock %}

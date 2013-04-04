@@ -19,7 +19,7 @@
 {%- block body %}
 
     {%- block before_header -%}{%- endblock %}
-    <header>
+    <header class="main">
         {%- block before_logo -%}{%- endblock %}
         <div id="logo">
           {%- if config.logo -%}
@@ -37,8 +37,6 @@
         <nav>
             <ul>
                 <li><a href="/">home</a></li>
-                <li><a href="/about/">about</a></li>
-                <li><a href="/contact/">contact</a></li>
                 <li><a href="/shipgen/">shipgen</a></li>
             </ul>
         </nav>
@@ -47,29 +45,46 @@
     {% block after_header -%}{%- endblock -%}
       
     {%- block before_content -%}{%- endblock -%}
-    <div id="content" class="main">
-        <header>{%- block pageTitle -%}{%- endblock -%}</header>
-        <div class="subheader">{%- block pageAuthor -%}{%- endblock -%}</div>
+    <div id="content">
+        {%- block pageTitle -%}{%- endblock -%}
+        {%- block pageAuthor -%}{%- endblock -%}
         
         <div class="content">
           {%- block pageContent -%}{%- endblock %}
         </div>
+        
+        {%- block before_aside -%}{%- endblock -%}
+        {%- block aside -%}
+            <aside class="main">
+                <header>Important Links:</header>
+        
+                <nav>
+                    <ul class="shipgen-nav">
+                        <li><a href="/shipgen/ships">ships</a></li>
+
+                        <li><a href="/shipgen/fleets">fleets</a></li>
+                        
+                        <li><a href="/shipgen/classes">classes</a></li>
+                        
+                        <li><a href="/shipgen/crews">crews</a></li>
+                    </ul>
+                </nav>
+            </aside>
+        {%- endblock -%}
+        {%- block after_aside -%}{%- endblock -%}
+        
         <footer>{%- block pageFooter -%}{%- endblock -%}</footer>
+    
     </div>
+     
     {%- block after_content -%}{%- endblock -%}
-  
-    {%- block before_aside -%}{%- endblock -%}
-    {%- block aside -%}{%- endblock -%}
-    {%- block after_aside -%}{%- endblock -%}
   
   
     {%- block before_footer -%}{%- endblock -%}
     {%- block footer -%}
-        <footer>
+        <footer class="main">
             {%- block before_footer_content -%}{%- endblock -%}
-            {%- block footer_content -%}
-            <span>page default footer</span>
-            {%- endblock -%}
+            {%- block footer_content -%}{%- endblock -%}
             {%- block after_footer_content -%}{%- endblock -%}
       
             {%- block before_footer_nav -%}{%- endblock -%}

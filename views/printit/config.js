@@ -6,8 +6,8 @@ var nodemailer = require('nodemailer'),
 module.exports = {
     name      : "main",            // name of this app
     author    : "mcms team",            //your name or the name of your company
-    title     : "&#181;-cms",           //the page title will be used in the <title> tag and instead of the logo.
-    branding  : "dry kiss",   //will be printed next to the title when no logo is used.
+    title     : "printit.",           //the page title will be used in the <title> tag and instead of the logo.
+    branding  : "games that matter.",   //will be printed next to the title when no logo is used.
     logo      : "",                     //leave blank to use the title instead
     protocol  : "http://",              //http or https
     url       : "m-cms.com",            //url this app can be reached at

@@ -1,0 +1,25 @@
+{% extends themeRootFile %}
+
+{% block title %}{{ config.title|raw }} - ships{% endblock %}
+
+{% block pageContent %}
+
+    {% for object in objects %}
+        <article class="object object-{{ object.slug }}">
+            <header>
+                <img src="/img/classes/{{object.slug}}.png" alt="{{object.name}}" title="{{object.name}}" />
+                <dl class="meta">
+                <dt>Name:</dt><dd><a href="/shipgen/classes/{{object.slug}}">{{object.name}}</a></dd>
+                <hr/>
+                <dt>Sizes Min/Max:</dt><dd>{{object.minSize}}/{{object.maxSize}}</dd>
+                <hr/>
+                <dt>Crew Min/Max:</dt><dd>{{object.minCrew}}/{{object.maxCrew}}</dd>
+                </dl>
+            </header>
+            
+            <div class="desc">
+                {{object.desc}}
+            </div>
+        </article>
+    {% endfor %}  
+{% endblock %}

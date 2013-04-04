@@ -22,7 +22,7 @@ exports.docdir = function (req, res) {
     }); 
 }
 
-exports.doc = function (req, res) {
+exports.doc = function (req, res, next) {
     var docRootUrl = req.app.plugins.doc.config[req.app.get('env')].rootUrl;
     
     var docRootDir = path.join(req.app.rootDir, 'plugins', 'doc', 'md');
@@ -38,10 +38,10 @@ exports.doc = function (req, res) {
         }
         
         fs.readFile(path.join(docRootDir, '/', req.params.docSlug + '.md'), "utf8", function (err, file) {
-            console.log('err = ' + err);
             
             if (!file || err ) {
-                res.redirect('404');
+                next();
+                return;
             }
             
             var md_html = md(file);

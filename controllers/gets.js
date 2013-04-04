@@ -9,15 +9,14 @@ var fs = require('fs'),
     form = require('express-form'),
     field = form.field;
 
-exports.index = function (req, res) {
+exports.index = function (req, res, next) {
     var templateFile = path.join(req.app.get('views'), req.app.get('theme'), 'pages', req.params.page + '.html'),
         Page = req.app.models.page;
 
-    Page.findOne({where: {published: true, slug: 'home'}, order: 'updated ASC'}, function (err, page) {
-        console.log('err = ' + err);
+    Page.findOne({published: true, slug: 'home', order: 'updated ASC'}, function (err, page) {
 
         if (!page) {
-            res.redirect('404');
+            next();
             return;
         }
 
@@ -31,14 +30,14 @@ exports.index = function (req, res) {
     });
 };
 
-exports.page = function (req, res) {
+exports.page = function (req, res, next) {
     var templateFile = path.join(req.app.get('views'), req.app.get('theme'), 'pages', req.params.page + '.html'),
         Page = req.app.models.page;
 
-    Page.findOne({where: {published: true, slug: req.params.page}, order: 'updated ASC'}, function (err, page) {
+    Page.findOne({published: true, slug: req.params.page}, function (err, page) {
 
         if (!page) {
-            res.redirect('404');
+            next();
             return;
         }
 

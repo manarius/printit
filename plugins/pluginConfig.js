@@ -46,21 +46,26 @@ module.exports = {
                 
                 if (exists) {
                     load(path.join(p, 'config')/*, {verbose: true}*/)
+                        .then(path.join(p, 'models/class.js'))
+                        .then(path.join(p, 'models/slot.js'))
+                        .then(path.join(p, 'models/mods'))
+                        .then(path.join(p, 'models/meta'))
+                        .then(path.join(p, 'models/fleet.js'))
+                        .then(path.join(p, 'models/crew.js'))
+                        .then(path.join(p, 'models/ship.js'))
                         .then(path.join(p, 'models'))
-                        .then(path.join(p, 'relations'))
                         .then(path.join(p, 'controllers'))
                         .then(path.join(p, 'routes'))
                         .into(app);
 
-                    setupPath = path.join(app.rootDir, p, 'setup.js');
+                    //~ setupPath = path.join(app.rootDir, p, 'setup.js');
 
-                    if (fs.existsSync(setupPath)) {
-                        require(setupPath).do(app);
-                    }
+                    //~ if (fs.existsSync(setupPath)) {
+                        //~ require(setupPath).do(app);
+                    //~ }
                 }
                 
-                if ( j >= pluginDirs.length && typeof cb === 'function') {
-                    
+                if ( j >= pluginDirs.length && typeof cb === 'function') {                    
                     //~ console.log('exists = '+exists + ' j = '+ j + 'plugindirs.length = ' + pluginDirs.length );
                     cb();
                 }

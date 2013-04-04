@@ -4,7 +4,9 @@ body{line-height:1}
 ol,ul{list-style-type:none}
 blockquote q{quotes:none}
 blockquotebefore,blockquoteafter,qbefore,qafter{content:'';content:none}
-body{width:670px;font:14px/16px Verdana,Arial,sans-serif;padding:50px}
+body{width:900px;font:14px/16px Verdana,Arial,sans-serif;background:#153642;color:#ccc;margin:0 0 0 40px}
+a{color:#8dbece;text-decoration:none}
+a:hover{color:#fff;text-decoration:none}
 h1{font-size:1.3em;font-weight:600}
 h2{font-size:1.3em}
 h3{font-size:1.2em;font-weight:600}
@@ -12,13 +14,26 @@ h4{font-size:1.2em}
 h5{font-size:1.1em}
 label{vertical-align:top}
 input,textarea{margin:3px;border:1px solid}
-header{display:inline-block;width:100%;margin:15px 0 8px;}
-header #logo{float:left;font-size:1.3em}
-header nav{float:right;}
-header nav ul li{display:inline}
+header{display:inline-block;width:100%;margin:15px 0 8px}
+header.main{background:#1b4250;border-radius:0 0 10px 10px;border:1px solid;border-top:0 none;border-left-color:#1a5064;border-bottom-color:#122e39;border-right-color:#122e39;margin:0;padding:30px 0 8px;}
+header.main nav{margin:0 20px 0 0;position:relative;float:right}
+header.main #logo{float:left;font-size:1.3em;margin:0 0 0 20px}
+header.main ul li{display:inline}
+div#content{width:860px;margin:-5px 20px;background:#173c46;border-radius:0 0 10px 10px;border:1px solid;border-top:0 none;border-left-color:#1a5064;border-bottom-color:#122e39;border-right-color:#122e39}
+div.content{float:left;width:555px;border-radius:10px;background:#1b4250;border:1px solid;border-top-color:#1a5064;border-left-color:#1a5064;border-bottom-color:#122e39;border-right-color:#122e39;margin:20px;padding:0 15px 10px}
+aside.main{float:right;width:180px;margin:20px 20px 20px 0;padding:0 15px 10px;border-radius:10px;background:#1b4250;border:1px solid;border-top-color:#1a5064;border-left-color:#1a5064;border-bottom-color:#122e39;border-right-color:#122e39}
 footer{clear:both;}
 footer nav{float:right}
-article{clear:both;margin:20px 0}
-dl{margin:20px 0;clear:both;}
+article{clear:both;margin:20px 0 0;display:inline-block}
 dl lh{margin:0 0 3px;font-size:1.1em;display:block}
-dl dd{font-style:italic;margin:0 0 15px 10px}
+dl dd{font-style:italic;margin:0 0 15px 10px;display:inline}
+dl dt{display:inline}
+dl hr{width:0;text-align:left;margin:0;border:0 none}
+div.values{clear:both;display:inline-block;width:100%;}
+div.values dl{float:left;text-align:right;margin:0 20px 0 0}
+dl.meta{float:left;width:300px}
+.object{padding:10px 15px;border-radius:10px;background:#3b4d4b;border:1px solid;border-top-color:#1a5064;border-left-color:#1a5064;border-bottom-color:#122e39;border-right-color:#122e39;width:520px;}
+.object header img{float:left;margin:0 20px 0 0;border-radius:5px;border-top-left-radius:10px}
+.object table{text-align:right}
+.object footer{font-size:11px;margin:5px 5px 0;border-top:1px dotted;border-top-color:#1a5064;}
+.object footer header{margin:2px 0 0}

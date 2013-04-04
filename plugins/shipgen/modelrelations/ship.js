@@ -12,50 +12,45 @@ exports.do = function (app) {
         Engine = models.mods.engine,
         Crew = models.mods.crew;
 
-    Synopsis.belongsTo(Ship, {as: 'synopsis', foreignKey: 'foreignId'});
-    Type.belongsTo(Ship, {as: 'type', foreignKey: 'foreignId'});
-
-    Ship.hasMany(Slot, {as: 'slots', foreignKey: 'shipId'});
-    Ship.hasMany(Crew, {as: 'crew', foreignKey: 'shipId'});
+    
+    Ship.hasMany(Slot, {as: 'slots', foreignKey: 'fID'});
+    Ship.hasMany(Crew, {as: 'crew', foreignKey: 'fID'});
     
     //slots may house any of the mods,
     //which one an individual slot can will be determined by Slot.modType
-    Synopsis.belongsTo(Slot, {as: 'synopsis', foreignKey: 'foreignId'});
-    Type.belongsTo(Slot, {as: 'type', foreignKey: 'foreignId'});
+    Slot.hasMany(Weapon, {as: 'weapons', foreignKey: 'fID'});
+    Slot.hasMany(Hull, {as: 'hulls', foreignKey: 'fID'});
+    Slot.hasMany(Shield, {as: 'shields', foreignKey: 'fID'});
+    Slot.hasMany(Engine, {as: 'engines', foreignKey: 'fID'});
     
-    Slot.hasMany(Weapon, {as: 'weapons', foreignKey: 'shipId'});
-    Slot.hasMany(Hull, {as: 'hulls', foreignKey: 'shipId'});
-    Slot.hasMany(Shield, {as: 'shields', foreignKey: 'shipId'});
-    Slot.hasMany(Engine, {as: 'engines', foreignKey: 'shipId'});
+    Ship.belongsTo(Class, {as: 'class', foreignKey: 'fID'});
+
+    Ship.hasMany(Class, {as: 'class', foreignKey: 'fID'});
+    Crew.hasMany(Class, {as: 'class', foreignKey: 'fID'});
+    Slot.hasMany(Class, {as: 'class', foreignKey: 'fID'});
     
-    
+    Weapon.hasMany(Class, {as: 'class', foreignKey: 'fID'});
+    Hull.hasMany(Class, {as: 'class', foreignKey: 'fID'});
+    Shield.hasMany(Class, {as: 'class', foreignKey: 'fID'});
+    Engine.hasMany(Class, {as: 'class', foreignKey: 'fID'});
+
     //adding class relations to basically everything.    
-    Class.belongsTo(Ship, {as: 'class', foreignKey: 'shipId'});
-    Class.belongsTo(Crew, {as: 'class', foreignKey: 'crewId'});
-    Class.belongsTo(Slot, {as: 'class', foreignKey: 'slotId'});
+    Class.hasMany(Ship, {as: 'class', foreignKey: 'fID'});
+    Class.hasMany(Crew, {as: 'class', foreignKey: 'fID'});
+    Class.hasMany(Slot, {as: 'class', foreignKey: 'fID'});
     
-    Class.belongsTo(Weapon, {as: 'class', foreignKey: 'weaponId'});
-    Class.belongsTo(Hull, {as: 'class', foreignKey: 'hullId'});
-    Class.belongsTo(Shield, {as: 'class', foreignKey: 'shieldId'});
-    Class.belongsTo(Engine, {as: 'class', foreignKey: 'engineId'});
+    Class.hasMany(Weapon, {as: 'class', foreignKey: 'fID'});
+    Class.hasMany(Hull, {as: 'class', foreignKey: 'fID'});
+    Class.hasMany(Shield, {as: 'class', foreignKey: 'fID'});
+    Class.hasMany(Engine, {as: 'class', foreignKey: 'fID'});
 
     //adding synopsis relations to basically everything
-    Synopsis.belongsTo(Ship, {as: 'synopsis', foreignKey: 'shipId'});
-    Synopsis.belongsTo(Crew, {as: 'synopsis', foreignKey: 'crewId'});
-    Synopsis.belongsTo(Slot, {as: 'synopsis', foreignKey: 'slotId'});
+    Synopsis.belongsTo(Ship, {as: 'synopsis', foreignKey: 'fID'});
+    Synopsis.belongsTo(Crew, {as: 'synopsis', foreignKey: 'fID'});
+    Synopsis.belongsTo(Slot, {as: 'synopsis', foreignKey: 'fID'});
     
-    Synopsis.belongsTo(Weapon, {as: 'synopsis', foreignKey: 'weaponId'});
-    Synopsis.belongsTo(Hull, {as: 'synopsis', foreignKey: 'hullId'});
-    Synopsis.belongsTo(Shield, {as: 'synopsis', foreignKey: 'shieldId'});
-    Synopsis.belongsTo(Engine, {as: 'synopsis', foreignKey: 'engineId'});
-
-    //adding type relations to basically everything
-    Type.belongsTo(Ship, {as: 'type', foreignKey: 'foreignId'});
-    Type.belongsTo(Crew, {as: 'type', foreignKey: 'foreignId'});
-    Type.belongsTo(Slot, {as: 'type', foreignKey: 'foreignId'});
-    
-    Type.belongsTo(Weapon, {as: 'type', foreignKey: 'weaponId'});
-    Type.belongsTo(Hull, {as: 'type', foreignKey: 'hullId'});
-    Type.belongsTo(Shield, {as: 'type', foreignKey: 'shieldId'});
-    Type.belongsTo(Engine, {as: 'type', foreignKey: 'engineId'});
+    Synopsis.belongsTo(Weapon, {as: 'synopsis', foreignKey: 'fID'});
+    Synopsis.belongsTo(Hull, {as: 'synopsis', foreignKey: 'fID'});
+    Synopsis.belongsTo(Shield, {as: 'synopsis', foreignKey: 'fID'});
+    Synopsis.belongsTo(Engine, {as: 'synopsis', foreignKey: 'fID'});
 }

@@ -1,0 +1,17 @@
+{% extends themeRootFile %}
+
+{% block pageContent %}
+    <header>welcome to the shipgen</header>
+    
+    <nav>
+        <dl class="shipgen-nav">
+            <dt>{{counts.ships}}:</dt> <dd><a href="/shipgen/ships">ships</a></dd>
+            <hr/>
+            <dt>{{counts.fleets}}:</dt> <dd><a href="/shipgen/fleets">fleets</a></dd>
+            <hr/>
+            <dt>{{counts.classes}}:</dt> <dd><a href="/shipgen/classes">classes</a></dd>
+            <hr/>
+            <dt>{{counts.crews}}:</dt> <dd><a href="/shipgen/crews">crews</a></dd>
+        </dl>
+    </nav>
+{% endblock %}

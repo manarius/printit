@@ -1,22 +1,24 @@
 "use strict";
 
+var mongoose = require('mongoose');
+
 module.exports = function(app) {
     var levels = app.plugins.shipgen.config[app.get('env')].levels,
         // define models
-        Class = app.schema.define('Class', {
+        classSchema = new app.Schema({
 
-            name: { type: String, default: '', length: 50},
-            slug: { type: String, default: '', length: 50},
+            name: { type: String, default: '', length: 50 },
+            slug: { type: String, default: '', length: 50 },
+            excerpt: { type: String, default: '', length: 255 },
+            desc: { type: String },
             published: { type: Boolean, default: false },
 
-            minSize:   { type: Number, default: 1, min: levels.min, max: levels.max },
-            maxSize:   { type: Number, default: 1, min: levels.min, max: levels.max },
-            
-            //~ crewMin:   { type: Number, default: 0, min: levels.min, max: levels.max },
-            //~ crewMax:   { type: Number, default: 0, min: levels.min, max: levels.max },
-        
-            cost:      { type: Number, default: 1, min: levels.min }
+            minSize:   { type: Number, default: levels.min, min: levels.min },
+            maxSize:   { type: Number, default: levels.min, min: levels.min },
+
+            minCrew:   { type: Number, default: levels.min, min: levels.min },
+            maxCrew:   { type: Number, default: levels.min, min: levels.min }
         });
 
-    return Class;
+    return mongoose.model('Class', classSchema);
 }

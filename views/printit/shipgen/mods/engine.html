@@ -3,25 +3,26 @@
 {% block pageContent %}
     <article class="engine engine-{{ engine.slug }}">
 
-        <header>{{engine.name}}</header>
-        <img src="{{engine.img.url}}" alt="{{engine.img.alt}} ">
+        <header>
+            <img src="{{engine.img.url}}" alt="{{engine.img.alt}}" title="{{engine.img.title}}">
+            <span class="img">{{engine.name}}</span>
+         </header>
+        
         <div class="content">
             {{engine.desc}}
         </div>
 
-      <dl class="">
-        <dt>Size</dt><dd>{{engine.size}}</dd>
-        <dt>Type</dt><dd>{{engine.category}}</dd>
-        <hr>
-        <dt>Velocity</dt><dd>{{engine.speed}}</dd> 
-        <dt>Acceleration</dt><dd>{{engine.acceleration}}</dd>
-        <dt>Consumption</dt><dd>{{engine.consumption}}</dd>
-        <hr>
+        <table class="">
+        <tr>
+            <td></td>
+        </tr>
+        <dt>size</dt><dd>{{engine.size}}</dd>
+        <dt>type</dt><dd>{{engine.category}}</dd>
+        <dt>max speed</dt><dd>{{engine.speed}}</dd> 
+        <dt>accel</dt><dd>{{engine.accel}}</dd>
+        <dt>consume</dt><dd>{{engine.consume}}</dd>
+
         <dt>Costs</dt><dd>{{engine.cost}}</dd>
-      </dl>
-
-
+        </table>
     </article>
-
-
 {% endblock %}

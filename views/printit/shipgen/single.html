@@ -1,0 +1,25 @@
+{% extends themeRootFile %}
+
+{% block pageContent %}
+    <article class="object object-{{ object.slug }}">
+	<header>
+	    <img src="/img/{{object.coll}}/{{object.slug}}.png" alt="{{object.name}}" title="{{object.name}}" />
+	    <div class="meta">
+		{% for m in object.meta %}
+		    <span>{{loop.key}}: {{m}}</span>
+		{% endfor %}
+	    </div>
+	</header>
+
+	<div>
+	    {% for v in object.slots %}
+		{{loop.key}}: {{v}}
+	    {% endfor %}
+	</div>
+	<div>
+	    {% for v in object.crews %}
+		{{loop.key}}: {{v}}
+	    {% endfor %}
+	</div>
+    </article>
+{% endblock %}

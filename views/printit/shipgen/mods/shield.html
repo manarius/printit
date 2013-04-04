@@ -4,26 +4,22 @@
     <article class="shield shield-{{ shield.slug }}">
 
         <header>{{shield.name}}</header>
-				<img src="{{shield.img.url}}" alt="{{shield.img.alt}} ">
-        <div class="content">
-            {{shield.desc}}
+	
+	<img src="{{shield.img.url}}" alt="{{shield.img.alt}}" title="{{shield.img.title}}">
+        
+	<div class="content">
+	    {{shield.desc}}
         </div>
 
-        
-
-			<dl class="">
-				<dt>Size</dt><dd>{{shield.size}}</dd>
-				<dt>Crew Space</dt><dd>{{shield.crewSpace}}</dd>
-				<dt>Category</dt><dd>{{shield.category}}</dd>
-				<hr>
-				<dt>Shield</dt><dd>{{shield.speed}}</dd> 
-				<dt>Recharge</dt><dd>{{shield.recharge}}</dd>
-				<hr>
-				<dt>Costs</dt><dd>{{shield.cost}}</dd>
-			</dl>
-
-
+	<dl>
+	    <dt>Size</dt><dd>{{shield.size}}</dd>
+	    <dt>Crew Space</dt><dd>{{shield.crewSpace}}</dd>
+	    <dt>Category</dt><dd>{{shield.category}}</dd>
+	    <hr>
+	    <dt>Shield</dt><dd>{{shield.speed}}</dd> 
+	    <dt>Recharge</dt><dd>{{shield.recharge}}</dd>
+	    <hr>
+	    <dt>Costs</dt><dd>{{shield.cost}}</dd>
+	</dl>
     </article>
-
-
 {% endblock %}

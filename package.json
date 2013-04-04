@@ -1,6 +1,6 @@
 {
   "name": "mcms",
-  "version": "0.0.1-20",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "app.js",
@@ -16,6 +16,10 @@
     "nodemailer": "latest",
     "jugglingdb": "latest",
     "jugglingdb-mongodb": "latest",
+    "mongoose": "latest",
+    "express-mongoose": "latest",
+    "mongoose-forms": "latest",
+    "mongoose-types": "latest",
     "express-slash": "latest",
     "node-markdown": "latest",
     "async": "latest"
