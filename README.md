@@ -1,7 +1,7 @@
 ###printit. games that matter.
 #####making games as free as they should be.
 
-##install:
+#####install:
     git clone https://github.com/manarius/printit
     
     npm install
@@ -11,6 +11,7 @@
 -- server should be running on port 2323 now.
 
 -- navigate to:
+
     http://localhost:2323/setup
     //click the button on this page to setup the pages
     
@@ -66,4 +67,4 @@ we want to play a game where we have control over our board, where we can replac
 we want to play a game that has rules in a compact and welldefined form. 
 preferably with hyperlinks in the rules that are on our phones, laptops or tablets ;) 
 no more books that gather dust and cost a fortune,
-just a few megabyte of data on our devices.
+just a few megabyte of data on our devices that we can navigate as easily as possible.
