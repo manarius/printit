@@ -43,60 +43,60 @@
       {%- block after_header_nav -%}{%- endblock %}
     </header>
     {% block after_header -%}{%- endblock -%}
-      
-    {%- block before_content -%}{%- endblock -%}
-    <div id="content">
-        {%- block pageTitle -%}{%- endblock -%}
-        {%- block pageAuthor -%}{%- endblock -%}
-        
-        <div class="content">
-          {%- block pageContent -%}{%- endblock %}
-        </div>
-        
-        {%- block before_aside -%}{%- endblock -%}
-        {%- block aside -%}
-            <aside class="main">
-                <header>Important Links:</header>
-        
-                <nav>
-                    <ul class="shipgen-nav">
-                        <li><a href="/shipgen/ships">ships</a></li>
+    <div id="container">  
+        {%- block before_content -%}{%- endblock -%}
+        <div id="content">
+            {%- block pageTitle -%}{%- endblock -%}
+            {%- block pageAuthor -%}{%- endblock -%}
+            
+            <div class="content">
+              {%- block pageContent -%}{%- endblock %}
+            </div>
+            
+            {%- block before_aside -%}{%- endblock -%}
+            {%- block aside -%}
+                <aside class="main">
+                    <header>Important Links:</header>
+            
+                    <nav>
+                        <ul class="shipgen-nav">
+                            <li><a href="/shipgen/ships">ships</a></li>
 
-                        <li><a href="/shipgen/fleets">fleets</a></li>
-                        
-                        <li><a href="/shipgen/classes">classes</a></li>
-                        
-                        <li><a href="/shipgen/crews">crews</a></li>
+                            <li><a href="/shipgen/fleets">fleets</a></li>
+                            
+                            <li><a href="/shipgen/classes">classes</a></li>
+                            
+                            <li><a href="/shipgen/crews">crews</a></li>
+                            
+                            <li><a href="/shipgen/slots">slots</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+            {%- endblock -%}
+            {%- block after_aside -%}{%- endblock -%}
+            
+            <footer>{%- block pageFooter -%}{%- endblock -%}</footer>
+        </div>
+        {%- block after_content -%}{%- endblock -%}
+      
+      
+        {%- block before_footer -%}{%- endblock -%}
+        {%- block footer -%}
+            <footer class="main">
+                {%- block before_footer_content -%}{%- endblock -%}
+                {%- block footer_content -%}{%- endblock -%}
+                {%- block after_footer_content -%}{%- endblock -%}
+          
+                {%- block before_footer_nav -%}{%- endblock -%}
+                <nav>
+                    <ul>
+                        <li><a href="/impressum">impressum</a></li>
                     </ul>
                 </nav>
-            </aside>
+                {%- block after_footer_nav -%}{%- endblock %}
+            </footer>
         {%- endblock -%}
-        {%- block after_aside -%}{%- endblock -%}
-        
-        <footer>{%- block pageFooter -%}{%- endblock -%}</footer>
-    
+        {%- block after_footer -%}{%- endblock -%}
     </div>
-     
-    {%- block after_content -%}{%- endblock -%}
-  
-  
-    {%- block before_footer -%}{%- endblock -%}
-    {%- block footer -%}
-        <footer class="main">
-            {%- block before_footer_content -%}{%- endblock -%}
-            {%- block footer_content -%}{%- endblock -%}
-            {%- block after_footer_content -%}{%- endblock -%}
-      
-            {%- block before_footer_nav -%}{%- endblock -%}
-            <nav>
-                <ul>
-                    <li><a href="/impressum">impressum</a></li>
-                </ul>
-            </nav>
-            {%- block after_footer_nav -%}{%- endblock %}
-        </footer>
-    {%- endblock -%}
-    {%- block after_footer -%}{%- endblock -%}
-  
     {%- block js -%}{%- endblock -%}
 {%- endblock -%}

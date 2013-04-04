@@ -35,7 +35,7 @@ exports.single = function (req, res, next) {
     var shipTemplateFile = path.join(req.app.get('theme'), 'shipgen', 'ships', 'single.html'),
         Ship = req.app.plugins.shipgen.models.ship;
 
-    Ship.findOne({slug: req.params.slug, published: true}).populate('class fleets').exec(function (err, ship) {
+    Ship.findOne({slug: req.params.slug, published: true}).populate('class fleets slots').exec(function (err, ship) {
         if (!ship) {
             next();
             return;

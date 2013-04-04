@@ -2,34 +2,43 @@
 
 {% block pageContent %}
     <article class="object object-{{ object.slug }}">
-	<header>
-	    <img src="/img/crews/{{object.slug}}.png" alt="{{object.name}} - {{object.category}}" title="{{object.name}} - {{object.category}}" />
-	    <dl class="meta">
-		<dt>Name:</dt>
-		<dd>{{object.name}}</dd>
-		<hr/>
-		<dt>Category:</dt>
-		<dd>{{object.category}}</dd>
-		<hr/>
-		<dt>Fleet:</dt>
-		<dd><a href="/shipgen/fleets/{{object.fleet.slug}}">{{object.fleet.name}}</a></dd>
-		<hr/>
-	    </dl>
-	    
-	    <dl class="values">
-		<dt>Strength:</dt>
-		<dd>{{object.strength}}</dd>
-		<hr/>
-		<dt>Aim:</dt>
-		<dd>{{object.aim}}</dd>
-		<hr/>
-		<dt>Initiative:</dt>
-		<dd>{{object.initiative}}</dd>
-		<hr/>
-		<dt>Morale:</dt>
-		<dd>{{object.morale}}</dd>
-		<hr/>
-	    </dl>
-	</header>
+    <header>
+        <img src="/img/crews/{{object.slug}}.png" alt="{{object.name}} - {{object.category}}" title="{{object.name}} - {{object.category}}" />
+        <dl class="meta">
+        <dt>Name:</dt>
+        <dd>{{object.name}}</dd>
+        <hr/>
+        <dt>Category:</dt>
+        <dd>{{object.category}}</dd>
+        <hr/>
+        <dt>Fleet:</dt>
+        <dd><a href="/shipgen/fleets/{{object.fleet.slug}}">{{object.fleet.name}}</a></dd>
+        <hr/>
+        </dl>
+        
+        <div class="values">
+            <dl>
+                <dt>Strength:</dt>
+                <dd>{{object.strength}}</dd>
+                <hr/>
+
+                <dt>Aim:</dt>
+                <dd>{{object.aim}}</dd>
+                <hr/>
+
+                <dt>Initiative:</dt>
+                <dd>{{object.initiative}}</dd>
+                <hr/>
+
+                <dt>Morale:</dt>
+                <dd>{{object.morale}}</dd>
+                <hr/>
+            </dl>
+            
+            <div class="excerpt">
+                {{object.excerpt}}
+            </div>
+        </div>
+    </header>
     </article>
 {% endblock %}

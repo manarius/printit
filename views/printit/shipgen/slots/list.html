@@ -1,0 +1,29 @@
+{% extends themeRootFile %}
+
+{% block title %}{{ config.title|raw }} - slots{% endblock %}
+
+{% block pageContent %}
+
+    {% for object in objects %}
+        <article class="object object-{{ object.slug }}">
+            <header>
+                <a href="/shipgen/slots/{{object.slug}}"><img src="/img/slots/{{object.slug}}.png" alt="{{object.name}} - {{object.category}}" title="{{object.name}} - {{object.category}}" /></a>
+                <dl class="meta">
+                    <dt>Name:</dt><dd><a href="/shipgen/slots/{{object.slug}}">{{object.name}}</a></dd>
+                    <hr/>
+                    <dt>Class:</dt><dd><a href="/shipgen/classes/{{object.class.slug}}">{{object.class.name}}</a></dd>
+                </dl>
+            </header>
+            
+            <div class="values">
+                <dl>
+                    <dt>Size</dt><dd>{{object.size}} cm</dd>
+                    <hr>
+                    <dt>Cost</dt><dd>{{object.cost}} pts</dd>
+                </dl>
+                
+                <div class="excerpt">{{object.excerpt}}</div>
+            </div>
+        </article>
+    {% endfor %}  
+{% endblock %}

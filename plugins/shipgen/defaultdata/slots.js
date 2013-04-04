@@ -8,7 +8,8 @@ module.exports = [
         excerpt: 'a small slot.',
         class: 'fighter',
         size: 1,
-        cost: 5
+        cost: 5,
+        published: true
     },
     {
         name: 'slot 2',
@@ -17,7 +18,8 @@ module.exports = [
         excerpt: 'a smallish slot.',
         class: 'frigate',
         size: 2,
-        cost: 10
+        cost: 10,
+        published: true
     },
     {
         name: 'slot 3',
@@ -26,7 +28,8 @@ module.exports = [
         excerpt: 'a pretty big slot.',
         class: 'cruiser',
         size: 3,
-        cost: 15
+        cost: 15,
+        published: true
     },
     {
         name: 'slot 4',
@@ -35,6 +38,7 @@ module.exports = [
         excerpt: 'a biiig slot.',
         class: 'battleship',
         size: 4,
-        cost: 25
+        cost: 25,
+        published: true
     }
 ];

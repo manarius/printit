@@ -13,7 +13,10 @@ module.exports = function(app) {
 
             name: { type: String, default: '', length: 50},
             slug: { type: String, default: '', length: 50},
+            excerpt: { type: String, default: '', length: 255 },
+            desc: { type: String },
             published: { type: Boolean, default: false },
+            
             category: { type: String, default: 'common' },
             class: { type: ObjectId, ref: 'Class'},
 

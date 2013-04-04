@@ -17,18 +17,20 @@
             {{object.desc}}
         </div>
         
-        <ul class="ships">
-            <lh>Ships with this class:</lh>
-            {% for ship in ships -%}
-                <li><a href="/shipgen/ships/{{ship.slug}}">{{ship.name}}</a></li>
-            {%- endfor %}
-        </ul>
-        
-        <ul class="slots">
-            <lh>ModSlots with this class:</lh>
-            {% for slot in slots -%}
-                <li><a href="/shipgen/slots/{{slot.slug}}">{{slot.name}}</a></li>
-            {%- endfor %}
-        </ul>
+        <footer>
+            <ul class="ships">
+                <lh>Ships with this class:</lh>
+                {% for ship in ships -%}
+                    <li><a href="/shipgen/ships/{{ship.slug}}">{{ship.name}}</a></li>
+                {%- endfor %}
+            </ul>
+            
+            <ul class="slots">
+                <lh>ModSlots with this class:</lh>
+                {% for slot in slots -%}
+                    <li><a href="/shipgen/slots/{{slot.slug}}">{{slot.name}}</a></li>
+                {%- endfor %}
+            </ul>
+        </footer>
     </article>
 {% endblock %}

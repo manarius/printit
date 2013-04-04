@@ -32,6 +32,12 @@ exports.index = function(req,res,next) {
                 counts.classes = classCount;
                 cb(null);
             });
+        },
+        function(cb) {
+            models.slot.count({}, function (err, slotCount) {
+                counts.slots = slotCount;
+                cb(null);
+            });
         }
     ],
     function() {

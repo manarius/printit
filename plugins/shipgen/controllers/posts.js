@@ -118,29 +118,37 @@ function createClass(models, i, dd, cb) {
 
 
 function createSlot(models, i, dd, cb) {
-    var Slot = models.slot;
+    var Slot = models.slot,
+        Class = models.class;
+    
+    if (!dd) {
+        throw 'createSlot was called without a defaultdata object';
+    }
+
     if (!dd.slug || !dd.name) {
         throw 'createSlot was called without a slug or a name in the defaultdata object';
     }
 
-    Slot.findOne({slug: dd.slug}).exec(function (err, c) {
+    Slot.findOne({slug: dd.slug}).exec(function (err, s) {
         s = s || new Slot();
 
         s.name = dd.name;
         s.slug = dd.slug;
         s.published = dd.published || false;
-        s.img = dd.img || '';
         s.category = dd.category || '';
+        
+        s.desc = dd.desc;
+        s.excerpt = dd.excerpt;
 
         s.size = dd.size || 1;
 
         s.cost = dd.cost || 1;
         
-        Class.findOne({slug: dd.classSlug}).exec(function(err, cl) {
+        Class.findOne({slug: dd.class}).exec(function(err, cl) {
             s.class = cl._id;
             
-            c.save(function (err, cl) {
-                console.log('fleet saved ' + cl.slug + ' err = ' + err);
+            s.save(function (err, sl) {
+                console.log('slot saved ' + sl.slug + ' err = ' + err);
             
                 if (typeof cb === 'function') {
                     cb(i);
@@ -248,6 +256,15 @@ exports.setup = function (req, res, next) {
                     }
                 });
             }
+        },
+        function (cb) {
+            for (i = 0; i < defaultdata.slots.length; i = i + 1) {
+                createSlot(req.app.plugins.shipgen.models, i, defaultdata.slots[i], function(j) {
+                    if(j >= defaultdata.slots.length -1) {
+                        cb(null);
+                    }
+                });
+            }
         }
     ]);
     res.render(req.app.get('theme') + '/pages/setup.html', {errs: errs, completed: true});
@@ -259,6 +276,7 @@ exports.deleteAll = function (req, res) {
         Ship = models.ship,
         Class = models.class,
         Fleet = models.fleet;
+        Slot = models.slot;
 
     async.parallel([
         function (cb) {
@@ -282,6 +300,12 @@ exports.deleteAll = function (req, res) {
         function (cb) {
             Crew.remove(function () {
                 console.log('destroyed all crews');
+                cb();
+            });
+        },
+        function (cb) {
+            Slot.remove(function () {
+                console.log('destroyed all slots');
                 cb();
             });
         }
