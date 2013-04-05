@@ -22,7 +22,7 @@ exports.index = function(req,res,next) {
             });
         },
         function(cb) {
-            models.people.captains.count({}, function (err, captainsCount) {
+            models.people.captain.count({}, function (err, captainsCount) {
                 counts.captains = captainsCount;
                 cb(null);
             });
@@ -46,31 +46,31 @@ exports.index = function(req,res,next) {
             });
         },
         function(cb) {
-            models.mods.weapons.count({}, function (err, weaponCount) {
+            models.mods.weapon.count({}, function (err, weaponCount) {
                 counts.weapons = weaponCount;
                 cb(null);
             });
         },
         function(cb) {
-            models.mods.hulls.count({}, function (err, hullCount) {
+            models.mods.hull.count({}, function (err, hullCount) {
                 counts.hulls = hullCount;
                 cb(null);
             });
         },
         function(cb) {
-            models.mods.shields.count({}, function (err, shieldCount) {
+            models.mods.shield.count({}, function (err, shieldCount) {
                 counts.shields = shieldCount;
                 cb(null);
             });
         },
         function(cb) {
-            models.mods.sensors.count({}, function (err, sensorCount) {
+            models.mods.sensor.count({}, function (err, sensorCount) {
                 counts.sensors = sensorCount;
                 cb(null);
             });
         },
         function(cb) {
-            models.mods.engines.count({}, function (err, engineCount) {
+            models.mods.engine.count({}, function (err, engineCount) {
                 counts.engines = engineCount;
                 cb(null);
             });

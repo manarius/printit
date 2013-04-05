@@ -3,17 +3,43 @@
 {% block pageContent %}
     <header>welcome to the shipgen</header>
     
+    <header>Important Links:</header>
+            
     <nav>
         <ul class="shipgen-nav">
             <li><a href="/shipgen/ships">ships</a>({{counts.ships}})</li>
 
             <li><a href="/shipgen/fleets">fleets</a>({{counts.fleets}})</li>
-
-            <li><a href="/shipgen/classes">classes</a>({{counts.classes}})</li>
-
-            <li><a href="/shipgen/crews">crews</a>({{counts.crews}})</li>
+            
+            <li><a href="/shipgen/classes">shipClasses</a>({{counts.classes}})</li>
+            
             
             <li><a href="/shipgen/slots">slots</a>({{counts.slots}})</li>
+            
+            
+            <ul class="shipgen-nav-mods">
+                
+                <lh><a href="/shipgen/mods">mods</a></lh>
+                
+                <li><a href="/shipgen/mods/engines">engines</a>({{counts.engines}})</li>
+                
+                <li><a href="/shipgen/mods/weapons">weapons</a>({{counts.weapons}})</li>
+                
+                <li><a href="/shipgen/mods/shields">shields</a>({{counts.shields}})</li>
+                
+                <li><a href="/shipgen/mods/hulls">hulls</a>({{counts.hulls}})</li>
+                
+                <li><a href="/shipgen/mods/sensors">sensors</a>({{counts.sensors}})</li>
+                
+                <li><a href="/shipgen/mods/generators">generators</a>({{counts.generators}})</li>
+            </ul>
+            
+            <ul class="shipgen-people-mods">
+
+                <lh><a href="/shipgen/people">people</a></lh>
+                <li><a href="/shipgen/people/captains">captains</a>({{counts.captains}})</li>
+                <li><a href="/shipgen/people/crews">crews</a>({{counts.crews}})</li>
+            </ul>
         </ul>
     </nav>
 {% endblock %}
