@@ -21,9 +21,13 @@ module.exports = function (app) {
     app.get(shipgendir + '/classes', controllers.classes.gets.list);
     app.get(shipgendir + '/classes/:slug', controllers.classes.gets.single);
 
-    app.get(shipgendir + '/crews', controllers.crews.gets.list);
-    app.get(shipgendir + '/crews/category/:categorySlug', controllers.crews.gets.list);
-    app.get(shipgendir + '/crews/:slug', controllers.crews.gets.single);
+    app.get(shipgendir + '/people', controllers.people.gets.index);
+    app.get(shipgendir + '/people/crews', controllers.people.crews.gets.list);
+    app.get(shipgendir + '/people/crews/category/:categorySlug', controllers.people.crews.gets.list);
+    app.get(shipgendir + '/people/crews/:slug', controllers.people.crews.gets.single);
+
+    app.get(shipgendir + '/people/captains', controllers.people.captains.gets.list);
+    app.get(shipgendir + '/people/captains/:slug', controllers.people.captains.gets.single);
 
     app.get(shipgendir + '/slots', controllers.slots.gets.list);
     app.get(shipgendir + '/slots/:slug', controllers.slots.gets.single);

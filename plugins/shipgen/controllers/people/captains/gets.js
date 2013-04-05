@@ -6,7 +6,7 @@ var fs = require('fs'),
 exports.list = function (req, res, next) {
 
     var config = req.app.plugins.shipgen.config[req.app.get('env')],
-        Crew = req.app.plugins.shipgen.models.crew,
+        Captain = req.app.plugins.shipgen.models.people.captain,
         where = {
             published: true
         };
@@ -16,34 +16,34 @@ exports.list = function (req, res, next) {
     }
     
     
-    Crew.find(where).populate('fleet', 'name slug').exec(function (err, crews) {
+    Captain.find(where).populate('fleet', 'name slug').exec(function (err, captains) {
 
-        if (!crews || crews.length <= 0) {
+        if (!captains || captains.length <= 0) {
             next();
             return;
         }
 
-        res.render(req.app.get('theme') + '/shipgen/crews/list', {objects: crews});
+        res.render(req.app.get('theme') + '/shipgen/people/captains/list', {objects: captains});
     });
 };
 
 
 exports.single = function (req, res, next) {
     var config = req.app.plugins.shipgen.config[req.app.get('env')],
-        Crew = req.app.plugins.shipgen.models.crew,
+        Captain = req.app.plugins.shipgen.models.people.captain,
         where = {
             published: true,
             slug: req.params.slug
         };
     
     
-    Crew.findOne(where).populate('fleet', 'name slug').exec(function (err, crew) {
+    Captain.findOne(where).populate('fleet', 'name slug').exec(function (err, crew) {
 
         if (!crew || crew.length <= 0) {
             next();
             return;
         }
 
-        res.render(req.app.get('theme') + '/shipgen/crews/single', {object: crew});
+        res.render(req.app.get('theme') + '/shipgen/people/captains/single', {object: crew});
     });
 }

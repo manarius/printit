@@ -40,15 +40,6 @@ exports.setup = function (req, res, next) {
             }
         },
         function (cb) {
-            for (i = 0; i < defaultdata.crews.length; i = i + 1) {
-                defaultdata.createCrew(req.app.plugins.shipgen.models, i, defaultdata.crews[i], function(j) {
-                    if(j >= defaultdata.crews.length -1) {
-                        cb(null);
-                    }
-                });
-            }
-        },
-        function (cb) {
             for (i = 0; i < defaultdata.slots.length; i = i + 1) {
                 defaultdata.createSlot(req.app.plugins.shipgen.models, i, defaultdata.slots[i], function(j) {
                     if(j >= defaultdata.slots.length -1) {
@@ -58,45 +49,63 @@ exports.setup = function (req, res, next) {
             }
         },
         function (cb) {
-            for (i = 0; i < defaultdata.engines.length; i = i + 1) {
-                defaultdata.mods.createEngine(req.app.plugins.shipgen.models, i, defaultdata.engines[i], function(j) {
-                    if(j >= defaultdata.engines.length -1) {
+            for (i = 0; i < defaultdata.mods.engines.length; i = i + 1) {
+                defaultdata.mods.createEngine(req.app.plugins.shipgen.models, i, defaultdata.mods.engines[i], function(j) {
+                    if(j >= defaultdata.mods.engines.length -1) {
                         cb(null);
                     }
                 });
             }
         },
         function (cb) {
-            for (i = 0; i < defaultdata.hulls.length; i = i + 1) {
-                defaultdata.mods.createHull(req.app.plugins.shipgen.models, i, defaultdata.hulls[i], function(j) {
-                    if(j >= defaultdata.hulls.length -1) {
+            for (i = 0; i < defaultdata.mods.hulls.length; i = i + 1) {
+                defaultdata.mods.createHull(req.app.plugins.shipgen.models, i, defaultdata.mods.hulls[i], function(j) {
+                    if(j >= defaultdata.mods.hulls.length -1) {
                         cb(null);
                     }
                 });
             }
         },
         function (cb) {
-            for (i = 0; i < defaultdata.shields.length; i = i + 1) {
-                defaultdata.mods.createShield(req.app.plugins.shipgen.models, i, defaultdata.shields[i], function(j) {
-                    if(j >= defaultdata.shields.length -1) {
+            for (i = 0; i < defaultdata.mods.shields.length; i = i + 1) {
+                defaultdata.mods.createShield(req.app.plugins.shipgen.models, i, defaultdata.mods.shields[i], function(j) {
+                    if(j >= defaultdata.mods.shields.length -1) {
                         cb(null);
                     }
                 });
             }
         },
         function (cb) {
-            for (i = 0; i < defaultdata.weapons.length; i = i + 1) {
-                defaultdata.mods.createWeapon(req.app.plugins.shipgen.models, i, defaultdata.weapons[i], function(j) {
-                    if(j >= defaultdata.weapons.length -1) {
+            for (i = 0; i < defaultdata.mods.weapons.length; i = i + 1) {
+                defaultdata.mods.createWeapon(req.app.plugins.shipgen.models, i, defaultdata.mods.weapons[i], function(j) {
+                    if(j >= defaultdata.mods.weapons.length -1) {
                         cb(null);
                     }
                 });
             }
         },
         function (cb) {
-            for (i = 0; i < defaultdata.sensors.length; i = i + 1) {
-                defaultdata.mods.createSensor(req.app.plugins.shipgen.models, i, defaultdata.sensors[i], function(j) {
-                    if(j >= defaultdata.sensors.length -1) {
+            for (i = 0; i < defaultdata.mods.sensors.length; i = i + 1) {
+                defaultdata.mods.createSensor(req.app.plugins.shipgen.models, i, defaultdata.mods.sensors[i], function(j) {
+                    if(j >= defaultdata.mods.sensors.length -1) {
+                        cb(null);
+                    }
+                });
+            }
+        },
+        function (cb) {
+            for (i = 0; i < defaultdata.people.crews.length; i = i + 1) {
+                defaultdata.people.createCrew(req.app.plugins.shipgen.models, i, defaultdata.people.crews[i], function(j) {
+                    if(j >= defaultdata.people.crews.length -1) {
+                        cb(null);
+                    }
+                });
+            }
+        },
+        function (cb) {
+            for (i = 0; i < defaultdata.people.captains.length; i = i + 1) {
+                defaultdata.people.createCaptain(req.app.plugins.shipgen.models, i, defaultdata.people.captains[i], function(j) {
+                    if(j >= defaultdata.people.captains.length -1) {
                         cb(null);
                     }
                 });
@@ -112,7 +121,8 @@ exports.deleteAll = function (req, res) {
         Ship = models.ship,
         ShipClass = models.shipClass,
         Fleet = models.fleet,
-        Crew = models.crew,
+        Crew = models.people.crew,
+        Captain = models.people.captain,
         Slot = models.slot,
         mods = models.mods;
 
@@ -138,6 +148,12 @@ exports.deleteAll = function (req, res) {
         function (cb) {
             Crew.remove(function () {
                 console.log('destroyed all crews');
+                cb();
+            });
+        },
+        function (cb) {
+            Captain.remove(function () {
+                console.log('destroyed all captains');
                 cb();
             });
         },

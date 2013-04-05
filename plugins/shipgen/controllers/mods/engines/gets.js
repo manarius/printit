@@ -11,7 +11,7 @@ exports.list = function (req, res, next) {
             published: true
         };
 
-    Engine.find(where)/*.populate('class', 'name slug')*/.exec(function (err, engines) {
+    Engine.find(where).populate('class', 'name slug').exec(function (err, engines) {
         if (err || !engines || engines.length <= 0) {
             next();
             return;

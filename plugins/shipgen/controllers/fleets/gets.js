@@ -25,7 +25,7 @@ exports.list = function (req, res, next) {
 exports.single = function (req, res, next) {
     var Fleet = req.app.plugins.shipgen.models.fleet,
         Ship = req.app.plugins.shipgen.models.ship,
-        Crew = req.app.plugins.shipgen.models.crew,
+        Crew = req.app.plugins.shipgen.models.people.crew,
         templateFile = path.join(req.app.get('theme'), 'shipgen', 'fleets', 'single.html');
 
     Fleet.findOne({slug: req.params.slug, published: true}).exec(function (err, fleet) {

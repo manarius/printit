@@ -51,7 +51,7 @@ module.exports = {
                         .then(path.join(p, 'models/mods'))
                         .then(path.join(p, 'models/meta'))
                         .then(path.join(p, 'models/fleet.js'))
-                        .then(path.join(p, 'models/crew.js'))
+                        .then(path.join(p, 'models/people'))
                         .then(path.join(p, 'models/ship.js'))
                         .then(path.join(p, 'models'))
                         .then(path.join(p, 'controllers'))

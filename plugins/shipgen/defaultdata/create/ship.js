@@ -4,7 +4,7 @@ module.exports = function createShip(models, i, dd, cb) {
     var Ship = models.ship,
         ShipClass = models.shipClass,
         Fleet = models.fleet,
-        Crew = models.crew;
+        Crew = models.people.crew;
     
     if (!dd) {
         throw 'createShip was called without a defaultdata object';

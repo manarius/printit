@@ -2,7 +2,7 @@
 
 
 module.exports = function createCrew(models, i, dd, cb) {
-    var Crew = models.crew,
+    var Crew = models.people.crew,
         Fleet = models.fleet;
 
     if (!dd) {
