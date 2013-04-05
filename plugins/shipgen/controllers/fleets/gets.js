@@ -5,10 +5,7 @@ var fs = require('fs'),
 
 exports.list = function (req, res, next) {
     var config = req.app.plugins.shipgen.config[req.app.get('env')],
-        shipgenRootDir = '/' + config.rootUrl + '/',
         Fleet = req.app.plugins.shipgen.models.fleet,
-        templateFile = path.join(req.app.get('theme'), 'shipgen', 'fleets', 'list.html'),
-
         where = {
             published: true
         };
@@ -20,7 +17,7 @@ exports.list = function (req, res, next) {
             return;
         }
         
-        res.render(templateFile, {objects: fleets});
+        res.render(req.app.get('theme') + '/shipgen/fleets/list.html', {objects: fleets});
     });
 };
 
@@ -37,7 +34,7 @@ exports.single = function (req, res, next) {
             return;
         }
         
-        Ship.find({'fleets': { $in: [fleet._id]}})
+        Ship.find({'fleet': fleet._id})
             .exec(function (err, ships) {
                 
             Crew.find({'fleet': fleet._id})

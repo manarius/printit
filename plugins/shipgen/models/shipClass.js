@@ -11,7 +11,7 @@ module.exports = function(app) {
             slug: { type: String, default: '', length: 50 },
             excerpt: { type: String, default: '', length: 255 },
             desc: { type: String },
-            published: { type: Boolean, default: false },
+            published: { type: Boolean, default: false, index: true },
 
             minSize:   { type: Number, default: levels.min, min: levels.min },
             maxSize:   { type: Number, default: levels.min, min: levels.min },
@@ -20,5 +20,5 @@ module.exports = function(app) {
             maxCrew:   { type: Number, default: levels.min, min: levels.min }
         });
 
-    return mongoose.model('Class', classSchema);
+    return mongoose.model('ShipClass', classSchema);
 }

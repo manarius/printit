@@ -1,0 +1,49 @@
+{% extends themeRootFile %}
+
+{% block pageContent %}
+    <article class="object object-{{ object.slug }}">
+        <header>
+            <a href="/shipgen/mods/sensors/{{object.slug}}"><img src="/img/mods/sensors/{{object.slug}}.png" alt="{{object.name}} - {{object.class.name}}-sensor" title="{{object.name}} - {{object.class.name}}-sensor" /></a>
+
+            <dl class="meta">
+                <dt>Name:</dt>
+                <dd><a href="/shipgen/mods/sensors/{{object.slug}}">{{object.name}}</a></dd>
+                <hr/>
+
+                <dt>Class:</dt>
+                <dd><a href="/shipgen/classes/{{object.class.slug}}">{{object.class.name}}</a></dd>
+                <hr/>
+            </dl>
+        </header>
+
+        <div class="values">
+            <dl class="attributes">
+                <dt>Size:</dt>
+                <dd>{{object.size}}</dd>
+                <hr>
+                
+                <dt>Range:</dt>
+                <dd>{{object.range}} cm</dd>
+                <hr>
+                
+                <dt>Ecm:</dt>
+                <dd>{{object.ecm}} cm</dd>
+                <hr>
+                
+                <dt>Eccm:</dt>
+                <dd>{{object.eccm}}</dd>
+                <hr>
+                
+                <dt>Consume:</dt>
+                <dd>{{object.consume}}</dd>
+                <hr>
+                
+                <dt>Cost:</dt>
+                <dd>{{object.cost}} pts</dd>
+                <hr/>
+            </dl>
+            
+            <div class="excerpt">{{object.excerpt}}</div>
+        </div>
+    </article>
+{% endblock %}

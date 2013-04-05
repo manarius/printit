@@ -6,7 +6,7 @@ var fs = require('fs'),
 exports.list = function (req, res, next) {
     var config = req.app.plugins.shipgen.config[req.app.get('env')],
         shipgenRootDir = '/' + config.rootUrl + '/',
-        Class = req.app.plugins.shipgen.models.class,
+        ShipClass = req.app.plugins.shipgen.models.shipClass,
         templateFile = path.join(req.app.get('theme'), 'shipgen', 'classes', 'list.html'),
      
 
@@ -14,7 +14,7 @@ exports.list = function (req, res, next) {
             published: true
         };
     
-    Class.find(where).sort('maxSize').exec(function (err, classes) {
+    ShipClass.find(where).sort('maxSize').exec(function (err, classes) {
 
         if (!classes || classes.length <= 0) {
             next();
@@ -28,12 +28,12 @@ exports.list = function (req, res, next) {
 
 exports.single = function (req, res, next) {
     var Fleet = req.app.plugins.shipgen.models.fleet,
-        Class = req.app.plugins.shipgen.models.class,
+        ShipClass = req.app.plugins.shipgen.models.shipClass,
         Ship = req.app.plugins.shipgen.models.ship,
         Slot = req.app.plugins.shipgen.models.slot,
         templateFile = path.join(req.app.get('theme'), 'shipgen', 'classes', 'single.html');
 
-    Class.findOne({slug: req.params.slug, published: true}).exec(function (err, cl) {
+    ShipClass.findOne({slug: req.params.slug, published: true}).exec(function (err, cl) {
         if (!cl) {
             next();
             return;

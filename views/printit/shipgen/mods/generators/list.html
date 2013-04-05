@@ -1,0 +1,43 @@
+{% extends themeRootFile %}
+
+{% block title %}{{ config.title|raw }} - generators{% endblock %}
+
+{% block pageContent %}
+
+    {% for object in objects %}
+        <article class="object object-{{ object.slug }}">
+            <header>
+                <a href="/shipgen/mods/generators/{{object.slug}}"><img src="/img/mods/generators/{{object.slug}}.png" alt="{{object.name}} - {{object.class.name}}-generator" title="{{object.name}} - {{object.class.name}}-generator" /></a>
+
+                <dl class="meta">
+                    <dt>Name:</dt>
+                    <dd><a href="/shipgen/mods/generators/{{object.slug}}">{{object.name}}</a></dd>
+                    <hr/>
+
+                    <dt>Class:</dt>
+                    <dd><a href="/shipgen/classes/{{object.class.slug}}">{{object.class.name}}</a></dd>
+                    <hr/>
+                </dl>
+            </header>
+
+            <div class="values">
+                <dl class="attributes">
+                    <dt>Size:</dt>
+                    <dd>{{object.size}}</dd>
+                    <hr>
+                    
+                    <dt>Energy:</dt>
+                    <dd>{{object.energy}} cm</dd>
+                    <hr>
+                    
+                    <dt>Cost:</dt>
+                    <dd>{{object.cost}} pts</dd>
+                    <hr/>
+                </dl>
+                
+                <div class="excerpt">{{object.excerpt}}</div>
+            </div>
+        </article>
+    {% endfor %}  
+{% endblock %}
+

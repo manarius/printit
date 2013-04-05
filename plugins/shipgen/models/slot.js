@@ -15,10 +15,10 @@ module.exports = function(app) {
             slug: { type: String, default: '', length: 50},
             excerpt: { type: String, default: '', length: 255 },
             desc: { type: String },
-            published: { type: Boolean, default: false },
+            published: { type: Boolean, default: false, index: true },
             
             category: { type: String, default: 'common' },
-            class: { type: ObjectId, ref: 'Class'},
+            class: { type: ObjectId, default: null, ref: 'ShipClass'},
 
             size: { type: Number, default: levels.min, min: levels.min, max: levels.max },
             

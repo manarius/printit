@@ -12,9 +12,7 @@ module.exports = function (app) {
     app.get(shipgendir + '/deleteAll', controllers.gets.deleteAll);
 
     app.get(shipgendir + '/ships', controllers.ships.gets.list);
-
     app.get(shipgendir + '/ships/category/:categorySlug', controllers.ships.gets.list);
-
     app.get(shipgendir + '/ships/:slug', controllers.ships.gets.single);
 
     app.get(shipgendir + '/fleets', controllers.fleets.gets.list);
@@ -24,10 +22,28 @@ module.exports = function (app) {
     app.get(shipgendir + '/classes/:slug', controllers.classes.gets.single);
 
     app.get(shipgendir + '/crews', controllers.crews.gets.list);
+    app.get(shipgendir + '/crews/category/:categorySlug', controllers.crews.gets.list);
     app.get(shipgendir + '/crews/:slug', controllers.crews.gets.single);
 
     app.get(shipgendir + '/slots', controllers.slots.gets.list);
     app.get(shipgendir + '/slots/:slug', controllers.slots.gets.single);
+    
+    app.get(shipgendir + '/mods', controllers.mods.gets.list);
+    
+    app.get(shipgendir + '/mods/engines', controllers.mods.engines.gets.list);
+    app.get(shipgendir + '/mods/engines/:slug', controllers.mods.engines.gets.single);
+
+    app.get(shipgendir + '/mods/shields', controllers.mods.shields.gets.list);
+    app.get(shipgendir + '/mods/shields/:slug', controllers.mods.shields.gets.single);
+    
+    app.get(shipgendir + '/mods/hulls', controllers.mods.hulls.gets.list);
+    app.get(shipgendir + '/mods/hulls/:slug', controllers.mods.hulls.gets.single);
+    
+    app.get(shipgendir + '/mods/weapons', controllers.mods.weapons.gets.list);
+    app.get(shipgendir + '/mods/weapons/:slug', controllers.mods.weapons.gets.single);
+    
+    app.get(shipgendir + '/mods/sensors', controllers.mods.sensors.gets.list);
+    app.get(shipgendir + '/mods/sensors/:slug', controllers.mods.sensors.gets.single);
 
     //~ app.get(shipgendir + '/:collection/:slug', controllers.gets.single);
     

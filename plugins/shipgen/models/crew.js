@@ -10,7 +10,7 @@ module.exports = function(app) {
 
             name: { type: String, default: '', length: 50},
             slug: { type: String, default: '', length: 50},
-            published: { type: Boolean, default: false },
+            published: { type: Boolean, default: false, index: true },
             category: { type: String, default: 'common' },
             
             excerpt: { type: String, default: '', length: 255},

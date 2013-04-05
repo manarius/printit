@@ -20,6 +20,11 @@
                     
                     <dt>Class:</dt>
                     <dd><a href="/shipgen/classes/{{object.class.slug}}">{{object.class.name}}</a></dd>
+                    <hr/>
+                    
+                    <dt>Fleet:</dt>
+                    <dd><a href="/shipgen/fleets/{{object.fleet.slug}}">{{object.fleet.name}}</a></dd>
+                    <hr/>
                 </dl>
             </header>
 
@@ -35,14 +40,7 @@
                 
                 <div class="excerpt">{{object.excerpt}}</div>
             </div>
-            <footer>
-                <div class="fleets">
-                    <header>fleets that use this ship:</header>
-                    {% for fleet in object.fleets %}
-                    <a href="/shipgen/fleets/{{fleet.slug}}">{{fleet.name}}</a>
-                    {% endfor %}
-                </div>
-            </footer>
         </article>
     {% endfor %}  
 {% endblock %}
+

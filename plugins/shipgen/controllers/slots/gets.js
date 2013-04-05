@@ -13,12 +13,7 @@ exports.list = function (req, res, next) {
             published: true
         };
     
-    if (req.params.categorySlug) {
-        where.category = req.params.categorySlug;
-    }
-    
-    
-    Slot.find(where).exec(function (err, slots) {
+    Slot.find(where).populate('class', 'name slug').exec(function (err, slots) {
 
         if (!slots || slots.length <= 0) {
             next();

@@ -13,7 +13,7 @@ module.exports = function(app) {
             desc: { type: String },
             img: { type: String, default: '', length: 50},
             
-            published: { type: Boolean, default: false },
+            published: { type: Boolean, default: false, index: true },
 
             costMultiply: { type: Number, default: '1'}
         });

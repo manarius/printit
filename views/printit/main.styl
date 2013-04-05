@@ -118,7 +118,7 @@ header.main
   
 div#container
     width 860px
-    margin -5px 20px
+    margin -5px 20px 20px
     background rgb(23, 60, 70)
     border-radius 0 0 10px 10px
     border 1px solid
@@ -160,7 +160,11 @@ footer
         float right
 
 footer.main
-    display block
+    display inline-block
+    position relative
+    padding 0 10px
+    width 830px
+    margin 0 0 5px
 
 article
       clear both
@@ -185,11 +189,18 @@ dl
         margin 0
         border 0 none
 
+ul
+    ul
+        margin 5px 0 0 5px
+
+        li
+            margin 0 0 0 5px
+
+
 div.values
     clear both
     display inline-block
     width 100%
-    margin 10px 0 0
     
     dl
         float left
@@ -239,6 +250,7 @@ dl.meta
         ul
             lh
                 display block
+                font-size 1.05em
             li
                 font-style italic
                 margin 0 0 15px 10px

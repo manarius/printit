@@ -5,215 +5,6 @@ var path = require('path'),
     field = form.field,
     async = require('async');
 
-function createFleet(models, i, dd, cb) {
-    var Fleet = models.fleet;
-    
-    if (!dd) {
-        throw 'createFleet was called without a defaultdata object';
-    }
-
-    if (!dd.slug || !dd.name) {
-        throw 'createFleet was called without a slug or a name in the defaultdata object';
-    }
-
-    Fleet.findOne({slug: dd.slug}).exec(function (err, c) {
-        c = c || new Fleet();
-
-        c.name = dd.name;
-        c.slug = dd.slug;
-        c.published = dd.published || false;
-        
-        c.desc = dd.desc || 0;
-        c.excerpt = dd.excerpt || 1;
-        
-        c.img = dd.img || '';
-        c.costMultiply = dd.costMultiply || 1;
-
-        c.save(function (err, cl) {
-            console.log('fleet saved ' + cl.slug + ' err = ' + err);
-            
-            if (typeof cb === 'function') {
-                cb(i);
-            }
-        });
-    });
-}
-function createCrew(models, i, dd, cb) {
-    var Crew = models.crew,
-        Fleet = models.fleet;
-
-    if (!dd) {
-        throw 'createCrew was called without a defaultdata object';
-    }
-
-    if (!dd.slug || !dd.name) {
-        throw 'createCrew was called without a slug or a name in the defaultdata object';
-    }
-
-    Crew.findOne({slug: dd.slug}).exec(function (err, c) {
-        c = c || new Crew();
-
-        c.name = dd.name;
-        c.slug = dd.slug;
-        c.published = dd.published || false;
-        
-        c.desc = dd.desc;
-        c.excerpt = dd.excerpt;
-        console.log('excerpt = ' + dd.excerpt);
-        
-        c.size = dd.size || 1,
-        
-        c.cost = dd.cost || 1,
-        
-        c.strength = dd.strength || 1,
-        c.aim = dd.aim || 1,
-        c.initiative = dd.initiative || 1,
-        c.morale = dd.morale || 2,
-        
-        Fleet.findOne({slug: dd.fleet}).exec(function (err, fleet) {
-            c.fleet = fleet._id;
-        
-            c.save(function (err, cl) {
-                console.log('crew saved ' + cl.slug + ' err = ' + err);
-                
-                if (typeof cb === 'function') {
-                    cb(i);
-                }
-            });
-        });
-    });
-}
-function createClass(models, i, dd, cb) {
-    var Class = models.class;
-
-    if (!dd.slug || !dd.name) {
-        throw 'createClass was called without a slug or a name in the defaultdata object';
-    }
-
-    Class.findOne({slug: dd.slug}).exec(function (err, c) {
-        c = c || new Class();
-
-        c.name = dd.name;
-        c.slug = dd.slug;
-        c.published = dd.published || false;
-        
-        c.desc = dd.desc;
-        c.excerpt = dd.excerpt;
-        
-        c.minCrew = dd.minCrew || 0;
-        c.maxCrew = dd.maxCrew || 1;
-        
-        c.minSize = dd.minSize || 1;
-        c.maxSize = dd.maxSize || 2;
-        
-        c.save(function (err, cl) {
-            console.log('class saved ' + cl.slug + ' err = ' + err);
-            
-            if (typeof cb === 'function') {
-                cb(i);
-            }
-        });
-    });
-}
-
-
-function createSlot(models, i, dd, cb) {
-    var Slot = models.slot,
-        Class = models.class;
-    
-    if (!dd) {
-        throw 'createSlot was called without a defaultdata object';
-    }
-
-    if (!dd.slug || !dd.name) {
-        throw 'createSlot was called without a slug or a name in the defaultdata object';
-    }
-
-    Slot.findOne({slug: dd.slug}).exec(function (err, s) {
-        s = s || new Slot();
-
-        s.name = dd.name;
-        s.slug = dd.slug;
-        s.published = dd.published || false;
-        s.category = dd.category || '';
-        
-        s.desc = dd.desc;
-        s.excerpt = dd.excerpt;
-
-        s.size = dd.size || 1;
-
-        s.cost = dd.cost || 1;
-        
-        Class.findOne({slug: dd.class}).exec(function(err, cl) {
-            s.class = cl._id;
-            
-            s.save(function (err, sl) {
-                console.log('slot saved ' + sl.slug + ' err = ' + err);
-            
-                if (typeof cb === 'function') {
-                    cb(i);
-                }
-            });
-        });
-    });
-}
-
-function createShip(models, i, dd, cb) {
-    var Ship = models.ship,
-        Class = models.class,
-        Fleet = models.fleet,
-        Crew = models.crew;
-    
-    if (!dd.slug || !dd.name || !dd.category) {
-        throw 'createShip was called without a slug, a name or a category in the defaultdata object';
-    }
-
-    Ship.findOne({slug: dd.slug}, function (err, s) {
-        s = s || new Ship();
-
-        s.name = dd.name;
-        s.slug = dd.slug;
-        s.published = dd.published || false;
-        s.category = dd.category || '';
-        
-        s.excerpt = dd.excerpt || '';
-        s.desc = dd.desc || '';
-        
-        s.size = dd.size || 1;
-        s.crew = dd.crew || 1;
-        s.cost = dd.cost || 10;
-        
-        Class.findOne({slug: dd.class}).exec(function (err, cl) {
-            if ( err || !cl) {
-                throw 'Class ' + dd.class + ' could not be found';
-            }
-            s.class = cl._id;
-            
-            Fleet.findOne({slug: dd.fleet}).exec(function (err, fleet) {
-                var found = false;
-                    
-                s.fleets.forEach(function(fl) {
-                    if (fleet.id == fl) {
-                        found = true;
-                    }
-                });
-                
-                if (!found) {
-                    s.fleets.push(fleet);
-                }
-
-                s.save(function (err, sh) {
-                    console.log('ship saved ' + sh.slug + ' err: ' + err);
-
-                    if (typeof cb === 'function') {
-                        cb(i);
-                    }
-                });
-            });
-        });
-    });
-}
-
 exports.setup = function (req, res, next) {
 
     var errs = [],
@@ -223,7 +14,7 @@ exports.setup = function (req, res, next) {
     async.waterfall([
         function (cb) {
             for (i = 0; i < defaultdata.fleets.length; i = i + 1) {
-                createFleet(req.app.plugins.shipgen.models, i, defaultdata.fleets[i], function(j) {
+                defaultdata.createFleet(req.app.plugins.shipgen.models, i, defaultdata.fleets[i], function(j) {
                     if(j >= defaultdata.fleets.length -1) {
                         cb(null);
                     }
@@ -232,7 +23,7 @@ exports.setup = function (req, res, next) {
         },
         function (cb) {
             for (i = 0; i < defaultdata.shipclasses.length; i = i + 1) {
-                createClass(req.app.plugins.shipgen.models, i, defaultdata.shipclasses[i], function(j) {
+                defaultdata.createClass(req.app.plugins.shipgen.models, i, defaultdata.shipclasses[i], function(j) {
                     if(j >= defaultdata.shipclasses.length -1) {
                         cb(null);
                     }
@@ -241,7 +32,7 @@ exports.setup = function (req, res, next) {
         },
         function (cb) {
             for (i = 0; i < defaultdata.ships.length; i = i + 1) {
-                createShip(req.app.plugins.shipgen.models, i, defaultdata.ships[i], function(j) {
+                defaultdata.createShip(req.app.plugins.shipgen.models, i, defaultdata.ships[i], function(j) {
                     if(j >= defaultdata.ships.length -1) {
                         cb(null);
                     }
@@ -250,7 +41,7 @@ exports.setup = function (req, res, next) {
         },
         function (cb) {
             for (i = 0; i < defaultdata.crews.length; i = i + 1) {
-                createCrew(req.app.plugins.shipgen.models, i, defaultdata.crews[i], function(j) {
+                defaultdata.createCrew(req.app.plugins.shipgen.models, i, defaultdata.crews[i], function(j) {
                     if(j >= defaultdata.crews.length -1) {
                         cb(null);
                     }
@@ -259,8 +50,53 @@ exports.setup = function (req, res, next) {
         },
         function (cb) {
             for (i = 0; i < defaultdata.slots.length; i = i + 1) {
-                createSlot(req.app.plugins.shipgen.models, i, defaultdata.slots[i], function(j) {
+                defaultdata.createSlot(req.app.plugins.shipgen.models, i, defaultdata.slots[i], function(j) {
                     if(j >= defaultdata.slots.length -1) {
+                        cb(null);
+                    }
+                });
+            }
+        },
+        function (cb) {
+            for (i = 0; i < defaultdata.engines.length; i = i + 1) {
+                defaultdata.mods.createEngine(req.app.plugins.shipgen.models, i, defaultdata.engines[i], function(j) {
+                    if(j >= defaultdata.engines.length -1) {
+                        cb(null);
+                    }
+                });
+            }
+        },
+        function (cb) {
+            for (i = 0; i < defaultdata.hulls.length; i = i + 1) {
+                defaultdata.mods.createHull(req.app.plugins.shipgen.models, i, defaultdata.hulls[i], function(j) {
+                    if(j >= defaultdata.hulls.length -1) {
+                        cb(null);
+                    }
+                });
+            }
+        },
+        function (cb) {
+            for (i = 0; i < defaultdata.shields.length; i = i + 1) {
+                defaultdata.mods.createShield(req.app.plugins.shipgen.models, i, defaultdata.shields[i], function(j) {
+                    if(j >= defaultdata.shields.length -1) {
+                        cb(null);
+                    }
+                });
+            }
+        },
+        function (cb) {
+            for (i = 0; i < defaultdata.weapons.length; i = i + 1) {
+                defaultdata.mods.createWeapon(req.app.plugins.shipgen.models, i, defaultdata.weapons[i], function(j) {
+                    if(j >= defaultdata.weapons.length -1) {
+                        cb(null);
+                    }
+                });
+            }
+        },
+        function (cb) {
+            for (i = 0; i < defaultdata.sensors.length; i = i + 1) {
+                defaultdata.mods.createSensor(req.app.plugins.shipgen.models, i, defaultdata.sensors[i], function(j) {
+                    if(j >= defaultdata.sensors.length -1) {
                         cb(null);
                     }
                 });
@@ -274,9 +110,11 @@ exports.setup = function (req, res, next) {
 exports.deleteAll = function (req, res) {
     var models = req.app.plugins.shipgen.models,
         Ship = models.ship,
-        Class = models.class,
-        Fleet = models.fleet;
-        Slot = models.slot;
+        ShipClass = models.shipClass,
+        Fleet = models.fleet,
+        Crew = models.crew,
+        Slot = models.slot,
+        mods = models.mods;
 
     async.parallel([
         function (cb) {
@@ -286,7 +124,7 @@ exports.deleteAll = function (req, res) {
             });
         },
         function (cb) {
-            Class.remove(function () {
+            ShipClass.remove(function () {
                 console.log('destroyed all classes');
                 cb();
             });
@@ -306,6 +144,42 @@ exports.deleteAll = function (req, res) {
         function (cb) {
             Slot.remove(function () {
                 console.log('destroyed all slots');
+                cb();
+            });
+        },
+        function (cb) {
+            mods.sensor.remove(function () {
+                console.log('destroyed all sensors');
+                cb();
+            });
+        },
+        function (cb) {
+            mods.weapon.remove(function () {
+                console.log('destroyed all weapons');
+                cb();
+            });
+        },
+        function (cb) {
+            mods.shield.remove(function () {
+                console.log('destroyed all shields');
+                cb();
+            });
+        },
+        function (cb) {
+            mods.hull.remove(function () {
+                console.log('destroyed all hulls');
+                cb();
+            });
+        },
+        function (cb) {
+            mods.generator.remove(function () {
+                console.log('destroyed all generators');
+                cb();
+            });
+        },
+        function (cb) {
+            mods.engine.remove(function () {
+                console.log('destroyed all engines');
                 cb();
             });
         }

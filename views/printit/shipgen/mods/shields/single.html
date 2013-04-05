@@ -1,0 +1,45 @@
+{% extends themeRootFile %}
+
+{% block pageContent %}
+    <article class="object object-{{ object.slug }}">
+        <header>
+            <a href="/shipgen/mods/shields/{{object.slug}}"><img src="/img/mods/shields/{{object.slug}}.png" alt="{{object.name}} - {{object.class.name}}-shield" title="{{object.name}} - {{object.class.name}}-shield" /></a>
+
+            <dl class="meta">
+                <dt>Name:</dt>
+                <dd><a href="/shipgen/mods/shields/{{object.slug}}">{{object.name}}</a></dd>
+                <hr/>
+
+                <dt>Class:</dt>
+                <dd><a href="/shipgen/classes/{{object.class.slug}}">{{object.class.name}}</a></dd>
+                <hr/>
+            </dl>
+        </header>
+
+        <div class="values">
+            <dl class="attributes">
+                <dt>Size:</dt>
+                <dd>{{object.size}}</dd>
+                <hr/>
+                
+                <dt>Strength:</dt>
+                <dd>{{object.strength}} cm</dd>
+                <hr>
+                
+                <dt>Regen:</dt>
+                <dd>{{object.regen}} cm</dd>
+                <hr/>
+                
+                <dt>Consume:</dt>
+                <dd>{{object.consume}} cm</dd>
+                <hr/>
+
+                <dt>Cost:</dt>
+                <dd>{{object.cost}} pts</dd>
+                <hr/>
+            </dl>
+            
+            <div class="excerpt">{{object.desc}}</div>
+        </div>
+    </article>
+{% endblock %}

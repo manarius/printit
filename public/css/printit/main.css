@@ -19,18 +19,20 @@ header.main{background:#1b4250;border-radius:0 0 10px 10px;border:1px solid;bord
 header.main nav{margin:0 20px 0 0;position:relative;float:right}
 header.main #logo{float:left;font-size:1.3em;margin:0 0 0 20px}
 header.main ul li{display:inline}
-div#container{width:860px;margin:-5px 20px;background:#173c46;border-radius:0 0 10px 10px;border:1px solid;border-top:0 none;border-left-color:#1a5064;border-bottom-color:#122e39;border-right-color:#122e39}
+div#container{width:860px;margin:-5px 20px 20px;background:#173c46;border-radius:0 0 10px 10px;border:1px solid;border-top:0 none;border-left-color:#1a5064;border-bottom-color:#122e39;border-right-color:#122e39}
 div.content{float:left;width:555px;border-radius:10px;background:#1b4250;border:1px solid;border-top-color:#1a5064;border-left-color:#1a5064;border-bottom-color:#122e39;border-right-color:#122e39;margin:20px;padding:0 15px 10px}
 aside.main{float:right;width:180px;margin:20px 20px 20px 0;padding:0 15px 10px;border-radius:10px;background:#1b4250;border:1px solid;border-top-color:#1a5064;border-left-color:#1a5064;border-bottom-color:#122e39;border-right-color:#122e39}
 footer{clear:both;}
 footer nav{float:right}
-footer.main{display:block}
+footer.main{display:inline-block;position:relative;padding:0 10px;width:830px;margin:0 0 5px}
 article{clear:both;margin:20px 0 0;display:inline-block}
 dl lh{margin:0 0 3px;font-size:1.1em;display:block}
 dl dd{font-style:italic;margin:0 0 15px 10px;display:inline}
 dl dt{display:inline}
 dl hr{width:0;text-align:left;margin:0;border:0 none}
-div.values{clear:both;display:inline-block;width:100%;margin:10px 0 0;}
+ul ul{margin:5px 0 0 5px;}
+ul ul li{margin:0 0 0 5px}
+div.values{clear:both;display:inline-block;width:100%;}
 div.values dl{float:left;text-align:right;margin:0 20px 0 0;width:100px}
 div.values div.excerpt{float:left;width:400px}
 dl.meta{float:left;width:300px}
@@ -39,5 +41,5 @@ dl.meta{float:left;width:300px}
 .object table{text-align:right}
 .object footer{font-size:11px;margin:5px 5px 0;border-top:1px dotted;border-top-color:#1a5064;}
 .object footer header{margin:2px 0 0}
-.object footer ul lh{display:block}
+.object footer ul lh{display:block;font-size:1.05em}
 .object footer ul li{font-style:italic;margin:0 0 15px 10px;display:inline}

@@ -1,0 +1,45 @@
+{% extends themeRootFile %}
+
+{% block pageContent %}
+    <article class="object object-{{ object.slug }}">
+        <header>
+            <a href="/shipgen/mods/engines/{{object.slug}}"><img src="/img/mods/engines/{{object.slug}}.png" alt="{{object.name}} - {{object.class.name}}-engine" title="{{object.name}} - {{object.class.name}}-engine" /></a>
+
+            <dl class="meta">
+                <dt>Name:</dt>
+                <dd><a href="/shipgen/mods/engines/{{object.slug}}">{{object.name}}</a></dd>
+                <hr/>
+
+                <dt>Class:</dt>
+                <dd><a href="/shipgen/classes/{{object.class.slug}}">{{object.class.name}}</a></dd>
+                <hr/>
+            </dl>
+        </header>
+
+        <div class="values">
+            <dl class="attributes">
+                <dt>Size:</dt>
+                <dd>{{object.size}}</dd>
+                <hr>
+                
+                <dt>Speed:</dt>
+                <dd>{{object.speed}} cm</dd>
+                <hr>
+                
+                <dt>Accel:</dt>
+                <dd>{{object.accel}} cm</dd>
+                <hr>
+                
+                <dt>Consume:</dt>
+                <dd>{{object.consume}}</dd>
+                <hr>
+                
+                <dt>Cost:</dt>
+                <dd>{{object.cost}} pts</dd>
+                <hr/>
+            </dl>
+            
+            <div class="excerpt">{{object.desc}}</div>
+        </div>
+    </article>
+{% endblock %}

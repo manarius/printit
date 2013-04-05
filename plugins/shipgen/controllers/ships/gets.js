@@ -13,13 +13,12 @@ exports.list = function (req, res, next) {
         where = {
             published: true
         };
-    
+
     if (req.params.categorySlug) {
         where.category = req.params.categorySlug;
     }
-    
-    
-    Ship.find(where).populate('class fleets').exec(function (err, ships) {
+
+    Ship.find(where).populate('class fleet', 'name slug').exec(function (err, ships) {
 
         if (!ships || ships.length <= 0) {
             next();
@@ -35,7 +34,11 @@ exports.single = function (req, res, next) {
     var shipTemplateFile = path.join(req.app.get('theme'), 'shipgen', 'ships', 'single.html'),
         Ship = req.app.plugins.shipgen.models.ship;
 
-    Ship.findOne({slug: req.params.slug, published: true}).populate('class fleets slots').exec(function (err, ship) {
+    Ship.findOne({slug: req.params.slug, published: true})
+        .populate('class fleet', 'name slug')
+        .populate('slots')
+        .exec(function (err, ship) {
+        
         if (!ship) {
             next();
             return;

@@ -28,7 +28,7 @@ exports.index = function(req,res,next) {
             });
         },
         function(cb) {
-            models.class.count({}, function (err, classCount) {
+            models.shipClass.count({}, function (err, classCount) {
                 counts.classes = classCount;
                 cb(null);
             });
