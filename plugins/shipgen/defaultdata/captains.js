@@ -12,6 +12,8 @@ module.exports = [
         size: 1,
 
         cost: 30,
+        
+        perks: ['fast_thinking'],
 
         strength: 2,
         aim: 2,
@@ -30,11 +32,13 @@ module.exports = [
         size: 1,
 
         cost: 30,
+        
+        perks: ['good_spirit'],
 
         strength: 2,
         aim: 2,
         initiative: 2,
         morale: 6,
-        fleet: 'alterian_pirates'
+        fleet: 'kybon_hivefleet'
     }
 ];

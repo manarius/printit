@@ -1,11 +1,14 @@
 "use strict";
 /**
- *	Route to controllers.
+ *  Route to controllers.
  */
 
 module.exports = function (app) {
-    var docdir = '/' + app.plugins.doc.config[app.get('env')].rootUrl;
-    
-    app.get(docdir + '/:docSlug', app.plugins.doc.controllers.gets.doc);
-    app.get(docdir, app.plugins.doc.controllers.gets.docdir);
+    var docdir = '/' + app.plugins.doc.config[app.get('env')].rootUrl,
+        controllers = app.plugins.doc.controllers;
+
+    app.get(docdir + '/:docSlug', controllers.gets.doc);
+    app.get( '/rules', controllers.gets.rulesIndex);
+    app.get( '/rules/:docSlug', controllers.gets.rule);
+    app.get(docdir, controllers.gets.docdir);
 };

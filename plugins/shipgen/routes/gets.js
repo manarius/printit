@@ -29,6 +29,9 @@ module.exports = function (app) {
     app.get(shipgendir + '/people/captains', controllers.people.captains.gets.list);
     app.get(shipgendir + '/people/captains/:slug', controllers.people.captains.gets.single);
 
+    app.get(shipgendir + '/people/perks', controllers.people.perks.gets.list);
+    app.get(shipgendir + '/people/perks/:slug', controllers.people.perks.gets.single);
+
     app.get(shipgendir + '/slots', controllers.slots.gets.list);
     app.get(shipgendir + '/slots/:slug', controllers.slots.gets.single);
     

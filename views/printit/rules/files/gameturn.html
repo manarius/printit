@@ -1,0 +1,74 @@
+<h3>Game Turn:</h3>
+
+<ol class="turn-excerpt">
+    <li>
+        <h5>Move Independent Objects:</h5>
+        This is the part of the turn where players move torpedoes, asteroids, mines, rockets and other randomly moving objects.
+        
+        <span class="hideable">
+            This covers all objects that are not 
+            directly player controlled, including ships that lost control, <br/>
+            Asteroids that enter the orbit of a planet and get catapulted through the solar system, <br/>
+            Torpedoes and dumb Rockets that stay on their course unless 
+            they fly through the orbit of a gravity generating object. <br/>
+            All of those objects have a speed value and move speed centimeters per turn.
+        </span>
+    </li>
+    <li>
+        <h5>Move Spaceships:</h5>
+        The players move their Spaceships, 
+        starting with the one with the <span class="italic">lowest</span> Initiative. 
+        <span class="hideable">
+            If there is a tie between multiple ships bigger ships move first 
+            because we can assume that they have slower reaction times than small 
+            one or two manned fighters.
+            
+            Every player can move each of his spaceships by more or equal to half their speed each turn, but the ships can not slow down below this value unless they use energy or formations.<br/>
+            Additionally to moving the spaceships players can issue manouver orders, which lead to ships flying <a href="/rules/manouvers/faster">faster than usual</a>, hitting the <a href="/rules/manouvers/emergency_brakes">emergency brakes</a>, issuing <a href="/rules/manouvers/collision_alert">collision alert</a> and some others.
+        </span>
+    </li>
+    <li>
+        <h5>Shoot weapons:</h5>
+            The ships shoot one after another, again ordered by initiative, but this time the highest initiative shoots first.
+        <span class="hideable">
+            This is used to simulate the faster crews being better in deciding whom to shoot at,
+            issuing commands, running through the ships, multitask and so on. <br/>
+            You can find the range of your weapons on your ship loadout, 
+            
+        </span>
+    </li>
+    
+    <li>
+        <h5>End phase:</h5>
+        Repair ships, decide about victory or defeat, remove and add markers from ships
+        <span class="hideable">
+            <dl class="end-phase-sections">
+                <dt id="repairing-ships">Repairing Ships:</dt>
+                <dd>    
+                    Each of your ships can be repaired in this part of the turn.
+                    Roll a six sided die and add the combined morale of your crews to determine if you and how many points you manage to repair. <br/>
+                    If the result is higher than your ship's size in centimeters you succeed,
+                    roll again and use the repairSkill of your fleet or crew (whichever is higher) to determine if you are able to repair a point of hull damage. <br/>
+                    If you succeed the roll, roll again until your ship is repaired or until you fail. <br/>
+                    Everytime you succeed you can add a <a href="/rules/markers/hull_marker">Hull Marker</a> to your ship.
+                </dd>
+                <dt>Victory And Defeat:</dt>
+                <dd>
+                    Depending on the scenario you are playing this is the point where you figure out if one of the players has won. <br/>
+                    Its a matter of honor to allow a defeated enemy to continue playing at this point though. <br/>
+                    Pirates go down with honor!
+                </dd>
+                <dt>Remove And Add Markers:</dt>
+                <dd>
+                    Add the number of activity markers to the base of your ships. <br/>
+                    Blue Markers are <a href="/rules/markers/shield">Shield markers</a>, regenerate them by the regen value of the shieldmodules if you have the needed energy left. <br/>
+                    Red Markers are <a href="/rules/markers/hull">Hull Markers</a>, see <a href="#repairing-ships"></a>
+                    Yellow Markers are <a href="/rules/markers/movement">Movement markers</a>, unless your ship is damaged you can replenish them to the total value your ship template provides. <br/>
+                    White Markers are <a href="/rules/markers/energy">Energy Markers</a>. You use energy for most actions, like shooting a weapon, replenishing shields, manouvers and so on. At the end of the turn you can replenish your energy to the maximum of your ship.
+                </dd>
+            </dl>
+                
+        </span>
+    </li>
+    <hr/>
+</ol>

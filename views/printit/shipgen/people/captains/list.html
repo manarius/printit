@@ -7,10 +7,10 @@
     {% for object in objects %}
         <article class="object object-{{ object.slug }}">
             <header>
-                <img src="/img/crews/{{object.slug}}.png" alt="{{object.name}} - {{object.category}}" title="{{object.name}} - {{object.category}}" />
+                <a href="/shipgen/people/captains/{{object.slug}}"><img src="/img/people/captains/{{object.slug}}.png" alt="{{object.name}}" title="{{object.name}}" /></a>
                 <dl class="meta">
                     <dt>Name:</dt>
-                    <dd>{{object.name}}</dd>
+                    <dd><a href="/shipgen/people/captains/{{object.slug}}">{{object.name}}</a></dd>
                     <hr/>
                     
                     <dt>Category:</dt>
@@ -45,6 +45,19 @@
                 
                 <div class="excerpt">{{object.excerpt}}</div>
             </div>
+            
+            {% if object.perks %}
+                <footer>
+                    <div class="perks">
+                        <ul>
+                            <lh>Perks:</lh>
+                            {% for perk in object.perks %}
+                                <li><a href="/shipgen/people/perks/{{perk.slug}}">{{perk.name}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </footer>
+            {% endif %}
         </article>
     {% endfor %}  
 {% endblock %}

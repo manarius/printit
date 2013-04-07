@@ -1,0 +1,50 @@
+{% extends themeRootFile %}
+
+{% block title %}{{ config.title|raw }} - crews{% endblock %}
+
+{% block pageContent %}
+
+    {% for object in objects %}
+        <article class="object object-{{ object.slug }}">
+            <header>
+                <a href="/shipgen/people/perks/{{object.slug}}"><img src="/img/people/perks/{{object.slug}}.png" alt="{{object.name}}" title="{{object.name}}" /></a>
+                <dl class="meta">
+                    <dt>Name:</dt>
+                    <dd><a href="/shipgen/people/perks/{{object.slug}}">{{object.name}}</a></dd>
+                    <hr/>
+                
+                    <dt>Cost:</dt>
+                    <dd>{{object.cost}}</dd>
+                    <hr/>
+                    <dt>CostMultiply:</dt>
+                    <dd>{{object.costMultiply}}</dd>
+                    <hr/>
+                </dl>
+                
+                <div class="values">
+                    <dl>
+                        <dt>Strength:</dt>
+                        <dd>{{object.strength}}</dd>
+                        <hr/>
+
+                        <dt>Aim:</dt>
+                        <dd>{{object.aim}}</dd>
+                        <hr/>
+
+                        <dt>Initiative:</dt>
+                        <dd>{{object.initiative}}</dd>
+                        <hr/>
+
+                        <dt>Morale:</dt>
+                        <dd>{{object.morale}}</dd>
+                        <hr/>
+                    </dl>
+                    
+                    <div class="excerpt">
+                        {{object.excerpt}}
+                    </div>
+                </div>
+            </header>
+        </article>
+    {% endfor %}  
+{% endblock %}

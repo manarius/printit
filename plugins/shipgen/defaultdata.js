@@ -23,12 +23,13 @@ module.exports = {
     
     people: {
         crews: require('./defaultdata/crews.js'),
-        captains: require('./defaultdata/captains.js'),
         createCrew: require('./defaultdata/create/people/crew.js'),
+        captains: require('./defaultdata/captains.js'),
         createCaptain: require('./defaultdata/create/people/captain.js'),
+        perks: require('./defaultdata/perks.js'),
+        createPerk: require('./defaultdata/create/people/perk.js'),
     },
     mods: {
-        
         weapons: require('./defaultdata/weapons.js'),
         shields: require('./defaultdata/shields.js'),
         engines: require('./defaultdata/engines.js'),

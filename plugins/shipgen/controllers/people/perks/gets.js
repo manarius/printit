@@ -6,7 +6,7 @@ var fs = require('fs'),
 exports.list = function (req, res, next) {
 
     var config = req.app.plugins.shipgen.config[req.app.get('env')],
-        Captain = req.app.plugins.shipgen.models.people.captain,
+        Perk = req.app.plugins.shipgen.models.people.perk,
         where = {
             published: true
         };
@@ -16,34 +16,34 @@ exports.list = function (req, res, next) {
     }
     
     
-    Captain.find(where).populate('fleet perks', 'name slug').exec(function (err, captains) {
+    Perk.find(where).exec(function (err, perks) {
 
-        if (!captains || captains.length <= 0) {
+        if (err || !perks || perks.length <= 0) {
             next();
             return;
         }
 
-        res.render(req.app.get('theme') + '/shipgen/people/captains/list', {objects: captains});
+        res.render(req.app.get('theme') + '/shipgen/people/perks/list', {objects: perks});
     });
 };
 
 
 exports.single = function (req, res, next) {
     var config = req.app.plugins.shipgen.config[req.app.get('env')],
-        Captain = req.app.plugins.shipgen.models.people.captain,
+        Perk = req.app.plugins.shipgen.models.people.perk,
         where = {
             published: true,
             slug: req.params.slug
         };
     
     
-    Captain.findOne(where).populate('fleet perks', 'name slug').exec(function (err, crew) {
+    Perk.findOne(where).exec(function (err, perk) {
 
-        if (!crew || crew.length <= 0) {
+        if (err || !perk || perk.length <= 0) {
             next();
             return;
         }
 
-        res.render(req.app.get('theme') + '/shipgen/people/captains/single', {object: crew});
+        res.render(req.app.get('theme') + '/shipgen/people/perks/single', {object: perk});
     });
 }

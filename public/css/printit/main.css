@@ -7,11 +7,11 @@ blockquotebefore,blockquoteafter,qbefore,qafter{content:'';content:none}
 body{width:900px;font:14px/16px Verdana,Arial,sans-serif;background:#153642;color:#ccc;margin:0 0 0 40px}
 a{color:#8dbece;text-decoration:none}
 a:hover{color:#fff;text-decoration:none}
-h1{font-size:1.3em;font-weight:600}
+h1{font-size:1.3em;font-weight:600;margin:15px 0 10px}
 h2{font-size:1.3em}
 h3{font-size:1.2em;font-weight:600}
-h4{font-size:1.2em}
-h5{font-size:1.1em}
+h4{font-size:1.2em;margin:10px 0 5px}
+h5{font-size:1.1em;margin:10px 0 5px}
 label{vertical-align:top}
 input,textarea{margin:3px;border:1px solid}
 header{display:inline-block;width:100%;margin:15px 0 8px}

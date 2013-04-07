@@ -3,7 +3,8 @@
 
 module.exports = function createCrew(models, i, dd, cb) {
     var Captain = models.people.captain,
-        Fleet = models.fleet;
+        Fleet = models.fleet,
+        Perk = models.people.perk;
 
     if (!dd) {
         throw 'createCrew was called without a defaultdata object';
@@ -13,7 +14,7 @@ module.exports = function createCrew(models, i, dd, cb) {
         throw 'createCrew was called without a slug or a name in the defaultdata object';
     }
 
-    Captain.findOne({slug: dd.slug}).exec(function (err, obj) {
+    Captain.findOne({slug: dd.slug}).populate('perks', 'slug').exec(function (err, obj) {
         obj = obj || new Captain();
 
         obj.name = dd.name;
@@ -36,13 +37,37 @@ module.exports = function createCrew(models, i, dd, cb) {
         
         Fleet.findOne({slug: dd.fleet}).exec(function (err, fleet) {
             obj.fleet = fleet._id;
-        
-            obj.save(function (err, savedObj) {
-                console.log('Captain saved ' + savedObj.slug + ' err = ' + err);
+
+            
+            Perk.find({slug: {$in: dd.perks}}).exec(function (err, perks) {
                 
-                if (typeof cb === 'function') {
-                    cb(i);
+                var perk = '',
+                    p = '',
+                    found = false;
+                
+                obj.perks = obj.perks || [];
+                
+                for (perk in perks) {
+                    if (perks.hasOwnProperty(perk)) {
+                        found = false;
+                        for (p in obj.perks) {
+                            if(obj.perks[p].slug == perks[perk].slug) {
+                                found = true;
+                            }
+                        }
+                        if (!found) {
+                            obj.perks.push(perks[perk]._id);
+                        }
+                    }
                 }
+
+                obj.save(function (err, savedObj) {
+                    console.log('Captain saved ' + savedObj.slug + ' err = ' + err);
+                    
+                    if (typeof cb === 'function') {
+                        cb(i);
+                    }
+                });
             });
         });
     });

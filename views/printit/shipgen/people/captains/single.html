@@ -38,6 +38,19 @@
             <div class="excerpt">
                 {{object.desc}}
             </div>
+            
+            {% if perks %}
+                <footer>
+                    <div class="perks">
+                        <ul>
+                            <lh>Perks:</lh>
+                            {% for perk in perks %}
+                                <li>Perks:</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </footer>
+            {% endif %}
         </div>
     </header>
     </article>

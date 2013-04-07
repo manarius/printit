@@ -31,6 +31,15 @@ exports.setup = function (req, res, next) {
             }
         },
         function (cb) {
+            for (i = 0; i < defaultdata.people.perks.length; i = i + 1) {
+                defaultdata.people.createPerk(req.app.plugins.shipgen.models, i, defaultdata.people.perks[i], function(j) {
+                    if(j >= defaultdata.people.perks.length -1) {
+                        cb(null);
+                    }
+                });
+            }
+        },
+        function (cb) {
             for (i = 0; i < defaultdata.ships.length; i = i + 1) {
                 defaultdata.createShip(req.app.plugins.shipgen.models, i, defaultdata.ships[i], function(j) {
                     if(j >= defaultdata.ships.length -1) {
