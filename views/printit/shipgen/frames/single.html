@@ -1,0 +1,24 @@
+{% extends themeRootFile %}
+
+{% block pageContent %}
+    <article class="object object-{{ object.slug }}">
+        <header>
+            <img src="/img/ships/{{object.slug}}.png" alt="{{object.name}} - {{object.category}}" title="{{object.name}} - {{object.category}}" />
+            <dl class="meta">
+                <dt>Name:</dt><dd>{{object.name}}</dd>
+                <hr/>
+                <dt>Category:</dt><dd>{{object.category}}</dd>
+                <hr/>
+                <dt>Class:</dt><dd><a href="/shipgen/classes/{{object.class.slug}}">{{object.class.name}}</a></dd>
+                <hr/>
+                <dt>Fleet:</dt><dd><a href="/shipgen/fleets/{{object.fleet.slug}}">{{object.fleet.name}}</a></dd>
+            </dl>
+        </header>
+
+        <dl>
+            <dt>Size</dt><dd>{{object.size}} cm</dd>
+            <hr>
+            <dt>Cost</dt><dd>{{object.cost}} pts</dd>
+        </dl>
+    </article>
+{% endblock %}

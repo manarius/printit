@@ -11,9 +11,9 @@ module.exports = function (app) {
 
     app.get(shipgendir + '/deleteAll', controllers.gets.deleteAll);
 
-    app.get(shipgendir + '/ships', controllers.ships.gets.list);
-    app.get(shipgendir + '/ships/category/:categorySlug', controllers.ships.gets.list);
-    app.get(shipgendir + '/ships/:slug', controllers.ships.gets.single);
+    app.get(shipgendir + '/frames', controllers.frames.gets.list);
+    app.get(shipgendir + '/frames/category/:categorySlug', controllers.frames.gets.list);
+    app.get(shipgendir + '/frames/:slug', controllers.frames.gets.single);
 
     app.get(shipgendir + '/fleets', controllers.fleets.gets.list);
     app.get(shipgendir + '/fleets/:slug', controllers.fleets.gets.single);

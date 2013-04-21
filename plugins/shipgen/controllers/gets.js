@@ -10,8 +10,8 @@ exports.index = function(req,res,next) {
     
     async.parallel([
         function(cb) {
-            models.ship.count({}, function (err, shipCount) {
-                counts.ships = shipCount;
+            models.frame.count({}, function (err, frameCount) {
+                counts.frames = frameCount;
                 cb(null);
             });
         },
@@ -34,7 +34,7 @@ exports.index = function(req,res,next) {
             });
         },
         function(cb) {
-            models.shipClass.count({}, function (err, classCount) {
+            models.frameClass.count({}, function (err, classCount) {
                 counts.classes = classCount;
                 cb(null);
             });

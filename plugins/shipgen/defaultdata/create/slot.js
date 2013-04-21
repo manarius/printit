@@ -2,7 +2,7 @@
 
 module.exports = function createSlot(models, i, dd, cb) {
     var Slot = models.slot,
-        ShipClass = models.shipClass;
+        FrameClass = models.frameClass;
     
     if (!dd) {
         throw 'createSlot was called without a defaultdata object';
@@ -27,7 +27,7 @@ module.exports = function createSlot(models, i, dd, cb) {
 
         s.cost = dd.cost || 1;
         
-        ShipClass.findOne({slug: dd.class}).exec(function(err, cl) {
+        FrameClass.findOne({slug: dd.class}).exec(function(err, cl) {
             s.class = cl._id;
             
             s.save(function (err, sl) {

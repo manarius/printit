@@ -22,9 +22,9 @@ exports.setup = function (req, res, next) {
             }
         },
         function (cb) {
-            for (i = 0; i < defaultdata.shipclasses.length; i = i + 1) {
-                defaultdata.createClass(req.app.plugins.shipgen.models, i, defaultdata.shipclasses[i], function(j) {
-                    if(j >= defaultdata.shipclasses.length -1) {
+            for (i = 0; i < defaultdata.frameclasses.length; i = i + 1) {
+                defaultdata.createClass(req.app.plugins.shipgen.models, i, defaultdata.frameclasses[i], function(j) {
+                    if(j >= defaultdata.frameclasses.length -1) {
                         cb(null);
                     }
                 });
@@ -40,9 +40,9 @@ exports.setup = function (req, res, next) {
             }
         },
         function (cb) {
-            for (i = 0; i < defaultdata.ships.length; i = i + 1) {
-                defaultdata.createShip(req.app.plugins.shipgen.models, i, defaultdata.ships[i], function(j) {
-                    if(j >= defaultdata.ships.length -1) {
+            for (i = 0; i < defaultdata.frames.length; i = i + 1) {
+                defaultdata.createFrame(req.app.plugins.shipgen.models, i, defaultdata.frames[i], function(j) {
+                    if(j >= defaultdata.frames.length -1) {
                         cb(null);
                     }
                 });
@@ -127,8 +127,8 @@ exports.setup = function (req, res, next) {
 
 exports.deleteAll = function (req, res) {
     var models = req.app.plugins.shipgen.models,
-        Ship = models.ship,
-        ShipClass = models.shipClass,
+        Frame = models.frame,
+        FrameClass = models.frameClass,
         Fleet = models.fleet,
         Crew = models.people.crew,
         Captain = models.people.captain,
@@ -137,13 +137,13 @@ exports.deleteAll = function (req, res) {
 
     async.parallel([
         function (cb) {
-            Ship.remove(function () {
-                console.log('destroyed all ships');
+            Frame.remove(function () {
+                console.log('destroyed all frames');
                 cb();
             });
         },
         function (cb) {
-            ShipClass.remove(function () {
+            FrameClass.remove(function () {
                 console.log('destroyed all classes');
                 cb();
             });

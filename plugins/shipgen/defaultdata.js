@@ -12,11 +12,11 @@
 
 module.exports = {
     fleets: require('./defaultdata/fleets.js'),
-    ships: require('./defaultdata/ships.js'),
-    shipclasses: require('./defaultdata/shipclasses.js'),
+    frames: require('./defaultdata/frames.js'),
+    frameclasses: require('./defaultdata/frameclasses.js'),
     slots: require('./defaultdata/slots.js'),
     
-    createShip: require('./defaultdata/create/ship.js'),
+    createFrame: require('./defaultdata/create/frame.js'),
     createFleet: require('./defaultdata/create/fleet.js'),
     createClass: require('./defaultdata/create/class.js'),
     createSlot: require('./defaultdata/create/slot.js'),

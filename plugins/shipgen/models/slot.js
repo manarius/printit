@@ -18,7 +18,7 @@ module.exports = function(app) {
             published: { type: Boolean, default: false, index: true },
             
             category: { type: String, default: 'common' },
-            class: { type: ObjectId, default: null, ref: 'ShipClass'},
+            class: { type: ObjectId, default: null, ref: 'FrameClass'},
 
             size: { type: Number, default: levels.min, min: levels.min, max: levels.max },
             

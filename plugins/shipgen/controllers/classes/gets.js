@@ -5,8 +5,7 @@ var fs = require('fs'),
 
 exports.list = function (req, res, next) {
     var config = req.app.plugins.shipgen.config[req.app.get('env')],
-        shipgenRootDir = '/' + config.rootUrl + '/',
-        ShipClass = req.app.plugins.shipgen.models.shipClass,
+        FrameClass = req.app.plugins.shipgen.models.frameClass,
         templateFile = path.join(req.app.get('theme'), 'shipgen', 'classes', 'list.html'),
      
 
@@ -14,7 +13,7 @@ exports.list = function (req, res, next) {
             published: true
         };
     
-    ShipClass.find(where).sort('maxSize').exec(function (err, classes) {
+    FrameClass.find(where).sort('maxSize').exec(function (err, classes) {
 
         if (!classes || classes.length <= 0) {
             next();
@@ -28,21 +27,21 @@ exports.list = function (req, res, next) {
 
 exports.single = function (req, res, next) {
     var Fleet = req.app.plugins.shipgen.models.fleet,
-        ShipClass = req.app.plugins.shipgen.models.shipClass,
-        Ship = req.app.plugins.shipgen.models.ship,
+        FrameClass = req.app.plugins.shipgen.models.frameClass,
+        Frame = req.app.plugins.shipgen.models.frame,
         Slot = req.app.plugins.shipgen.models.slot,
         templateFile = path.join(req.app.get('theme'), 'shipgen', 'classes', 'single.html');
 
-    ShipClass.findOne({slug: req.params.slug, published: true}).exec(function (err, cl) {
+    FrameClass.findOne({slug: req.params.slug, published: true}).exec(function (err, cl) {
         if (!cl) {
             next();
             return;
         }
                 
-        Ship.find({class: cl.id}).exec(function (err, ships) {
+        Frame.find({class: cl.id}).exec(function (err, frames) {
             Slot.find({class: cl.id}).exec(function (err, slots) {
                 
-                res.render(templateFile, {object: cl, ships: ships, slots: slots});
+                res.render(templateFile, {object: cl, frames: frames, slots: slots});
             });
         });
     });

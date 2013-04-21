@@ -2,7 +2,7 @@
 
 module.exports = function createShield(models, i, dd, cb) {
     var Shield = models.mods.shield,
-        ShipClass = models.shipClass;
+        FrameClass = models.frameClass;
     
     if (!dd) {
         throw 'createShield was called without a defaultdata object';
@@ -32,7 +32,7 @@ module.exports = function createShield(models, i, dd, cb) {
 
         s.cost = dd.cost || 1;
         
-        ShipClass.findOne({slug: dd.class}).exec(function(err, cl) {
+        FrameClass.findOne({slug: dd.class}).exec(function(err, cl) {
             s.class = cl._id;
             
             s.save(function (err, sh) {

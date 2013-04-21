@@ -15,7 +15,7 @@ module.exports = function(app) {
             desc: { type: String, default: '', length: 5000},
             excerpt: { type: String, default: '', length: 255},
 
-            class: {type: ObjectId, default: null, ref: 'ShipClass' },
+            class: {type: ObjectId, default: null, ref: 'FrameClass' },
 
             size: { type: Number, default: levels.min, min: levels.min, max: levels.max },
             

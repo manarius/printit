@@ -1,14 +1,14 @@
 "use strict";
 
 module.exports = function createClass(models, i, dd, cb) {
-    var ShipClass = models.shipClass;
+    var FrameClass = models.frameClass;
 
     if (!dd.slug || !dd.name) {
         throw 'createClass was called without a slug or a name in the defaultdata object';
     }
 
-    ShipClass.findOne({slug: dd.slug}).exec(function (err, obj) {
-        obj = obj || new ShipClass();
+    FrameClass.findOne({slug: dd.slug}).exec(function (err, obj) {
+        obj = obj || new FrameClass();
 
         obj.name = dd.name;
         obj.slug = dd.slug;
