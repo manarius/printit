@@ -1,39 +1,23 @@
 {
-  "name": "mcms",
+  "name": "printit",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "app.js",
-    "testenv": "nodemon app.js --delay 1 -e js,styl,html --debug"
+    "testenv": "nodemon app.js -e js,styl,html,jade --debug"
   },
   "dependencies": {
     "express": "latest",
-    "express-form": "latest",
+    "express-form": "https://github.com/freewil/express-form/tarball/master",
     "express-load": "latest",
-    "consolidate": "latest",
-    "swig": "latest",
-    "stylus": "https://github.com/manarius/stylus/tarball/master",
+    "jade": "latest",
+    "stylus": "latest",
     "nodemailer": "latest",
-    "jugglingdb": "latest",
-    "jugglingdb-mongodb": "latest",
     "mongoose": "latest",
-    "express-mongoose": "latest",
-    "mongoose-forms": "latest",
-    "mongoose-types": "latest",
     "express-slash": "latest",
     "node-markdown": "latest",
     "async": "latest"
   },
-  "subdomain": "m-cms",
-  "engines": {
-    "node": "0.8.x"
-  },
-  "domains": [
-    "m-cms.com",
-    "*.m-cms.com",
-    "ja-e.at",
-    "*.ja-e.at"
-  ],
   "devDependencies": {
     "mocha": "latest",
     "should": "latest"

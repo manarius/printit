@@ -1,0 +1,12 @@
+extends ../index
+
+block pageContent
+    nav
+        ul
+          if menu
+            for item in menu
+              li
+                a(href=item.url)= item.text
+
+    if md
+      div!= md

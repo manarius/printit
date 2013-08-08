@@ -1,0 +1,21 @@
+extends ../index
+
+block title
+  !{config.title} - setup
+
+block pageContent
+  if completed
+    div setup completed
+    
+
+  form(action="", method="post")
+    fieldset
+      legend Press button to setup
+      div.fields
+        input(type="submit", value="setup")
+          
+      
+    
+
+
+

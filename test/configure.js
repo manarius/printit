@@ -4,8 +4,6 @@
 
 
 var express = require('express'),
-    cons = require('consolidate'),
-    swig = require('swig'),
     stylus = require('stylus'),
     path = require('path'),
     app = require(path.join(__dirname, '..', 'app')),

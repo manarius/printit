@@ -77,14 +77,14 @@ exports.index = function(req,res,next) {
         }
     ],
     function() {
-        res.render('printit/shipgen/index.html', {counts: counts});
+        res.render(req.app.get('theme') + '/shipgen/index', {counts: counts});
     });
 }
 
 exports.setup = function (req, res, next) {
-    res.render('printit/pages/setup.html');
+    res.render(req.app.get('theme') + '/pages/setup');
 }
 
 exports.deleteAll = function (req, res, next) {
-    res.render('printit/pages/deleteAll.html');
+    res.render(req.app.get('theme') + '/pages/deleteAll');
 }

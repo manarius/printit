@@ -1,0 +1,29 @@
+extends ../../index
+
+block pageContent
+  article(class='object object-' + object.slug)
+    header
+      img(src='/img/fleets/' + object.slug + '.png', alt= object.name, title= object.name)
+      dl.meta 
+        dt Name:
+        dd= object.name
+        hr
+        dt CostMultiply:
+        dd= object.costMultiply
+
+    div.desc= object.desc
+
+    div.frames 
+      header frames in this fleet:
+      
+      ul
+        for frame in frames
+          li
+            a(href='/shipgen/frames/' + frame.slug)= frame.name
+
+    div.crews 
+      header crews in this fleet:
+      ul
+        for crew in crews
+          li
+            a(href='/shipgen/crews/' + crew.slug)= crew.name

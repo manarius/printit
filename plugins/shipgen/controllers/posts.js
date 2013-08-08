@@ -103,6 +103,15 @@ exports.setup = function (req, res, next) {
             }
         },
         function (cb) {
+            for (i = 0; i < defaultdata.mods.generators.length; i = i + 1) {
+                defaultdata.mods.createGenerator(req.app.plugins.shipgen.models, i, defaultdata.mods.generators[i], function(j) {
+                    if(j >= defaultdata.mods.generators.length -1) {
+                        cb(null);
+                    }
+                });
+            }
+        },
+        function (cb) {
             for (i = 0; i < defaultdata.people.crews.length; i = i + 1) {
                 defaultdata.people.createCrew(req.app.plugins.shipgen.models, i, defaultdata.people.crews[i], function(j) {
                     if(j >= defaultdata.people.crews.length -1) {
@@ -121,7 +130,7 @@ exports.setup = function (req, res, next) {
             }
         }
     ]);
-    res.render(req.app.get('theme') + '/pages/setup.html', {errs: errs, completed: true});
+    res.render(req.app.get('theme') + '/pages/setup', {errs: errs, completed: true});
 };
 
 
@@ -209,6 +218,6 @@ exports.deleteAll = function (req, res) {
             });
         }
     ], function() { //runs after all functions above ran.
-        res.render(req.app.get('theme') + '/pages/deleteAll.html', {completed: true});
+        res.render(req.app.get('theme') + '/pages/deleteAll', {completed: true});
     });
 };

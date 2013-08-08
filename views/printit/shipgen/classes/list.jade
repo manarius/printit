@@ -1,0 +1,27 @@
+extends ../../index
+
+block title
+  !{config.title} - ships
+
+block pageContent
+  for object in objects
+    article(class='object object-' + object.slug) 
+      header
+        img(src='/img/classes/' + object.slug + '.png', alt= object.name, title= object.name)
+        
+        dl.meta 
+          dt Name:
+          dd 
+            a(href='/shipgen/classes/' + object.slug)= object.name
+          hr
+          dt Sizes Min/Max:
+          dd= object.minSize + '/' + object.maxSize
+          hr
+          dt Crew Min/Max:
+          dd= object.minCrew + '/' + object.maxCrew
+
+      div.desc= object.desc
+            
+        
+      
+

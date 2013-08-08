@@ -1,0 +1,21 @@
+extends ../index
+
+block title
+  #{config.title} - setup
+
+
+block pageContent
+    if completed
+     div deleteAll completed
+
+    form(action="", method="post")
+      fieldset
+        legend Press button to deleteAll
+        div.fields
+          input(type="submit", value="setup")
+            
+        
+    
+
+
+

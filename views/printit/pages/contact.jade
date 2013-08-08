@@ -1,0 +1,50 @@
+extends ../index
+
+block title
+  !{config.title} - !{title}
+
+block pageTitle
+  header= title
+
+block pageAuthor
+  #{author}
+
+block pageDate
+  #{date}
+
+block pageContent
+  if mailSent
+    div.message.win
+      thanks for your message, #{name}, that email should be on it's way to us now.</div>
+  else
+    if errs
+      for err in errs
+        div.message.fail= err
+
+  div.contactContent= content
+    
+  form(method="post")
+    fieldset
+      legend you can use this form to send us an email:
+      ul
+        li
+          label(for="name") your name:
+          input#name(type="text", name="name", value="")
+
+        li
+          label(for="email") your email:
+          input#email(type="text", name="email", value="")
+        li
+          label(for="subject") subject:
+          input#subject(type="text", name="subject", value="")
+      
+        li
+          label(for="text") text:
+          textarea#text(rows="10", cols="30", name="text")
+    
+        li
+          input(type="submit", value="send mail")
+          
+                
+block pageFooter
+ #{footer}

@@ -1,0 +1,37 @@
+extends ../../index
+
+block pageContent
+  article(class='object object-' + object.slug) 
+    header
+      img(src='/img/classes/' + object.slug + '.png', alt= object.name, title= object.name)
+      
+      dl.meta 
+        dt Name:
+        dd= object.name
+        hr
+        dt Sizes Min/Max:
+        dd= object.minSize + '/' + object.maxSize
+        hr
+        dt Crew Min/Max:
+        dd= object.minCrew + '/' + object.maxCrew
+
+    div.desc= object.desc
+
+    footer
+      if ships
+        ul.ships 
+          lh Ships with this class:
+          for ship in ships
+            li
+              a(href='/shipgen/ships/' + ship.slug)= ship.name
+      if slots
+        ul.slots 
+          lh ModSlots with this class:
+          for slot in slots
+            li
+              a(href='/shipgen/slots/' + slot.slug)= slot.name
+          
+      
+  
+
+

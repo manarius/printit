@@ -1,0 +1,24 @@
+{% extends themeRootFile %}
+
+{% block pageContent %}
+    <article class="sensor sensor-{{ sensor.slug }}">
+
+        <header>{{sensor.name}}</header>
+        <img src="{{sensor.img.url}}" alt="{{sensor.img.alt}} ">
+        <div class="content">
+            {{sensor.desc}}
+        </div>     
+
+        <dl>
+            <dt>Size</dt><dd>{{sensor.size}}</dd>
+            <dt>Crew Space</dt><dd>{{sensor.crewSpace}}</dd>
+            <dt>Category</dt><dd>{{sensor.category}}</dd>
+            <hr>
+            <dt>Range</dt><dd>{{sensor.range}}</dd> 
+            <dt>Ecm</dt><dd>{{sensor.ecm}}</dd>
+            <dt>Eccm</dt><dd>{{sensor.eccm}}</dd>
+            <hr>
+            <dt>Costs</dt><dd>{{sensor.cost}}</dd>
+        </dl>
+    </article>
+{% endblock %}

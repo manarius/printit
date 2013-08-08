@@ -1,0 +1,46 @@
+extends ../../index
+
+block title
+  !{config.title} - frames
+
+block pageContent
+  if objects
+    for object in objects
+      article(class= 'object object-' + object.slug) 
+        header
+          a(href='/shipgen/frames/' + object.slug)
+            img(src= '/img/frames/' + object.slug + '.png', 
+                alt= object.name + ' - ' + object.category,
+                title= object.name + ' - ' + object.category)
+
+          dl.meta 
+            dt Name:
+            dd
+              a(href='/shipgen/frames/' + object.slug)= object.name
+            hr
+
+            dt Category:
+            dd= object.category
+            hr
+            
+            dt Class:
+            dd
+              a(href='/shipgen/classes/' + object.class.slug)= object.class.name
+            hr
+
+            dt Fleet:
+            dd
+              a(href='/shipgen/fleets/' + object.fleet.slug)= object.fleet.name
+            hr
+
+        div.values 
+          dl.attributes
+            dt Size:
+            dd #{object.size} cm
+            hr
+            
+            dt Cost:
+            dd #{object.cost} pts
+            
+            
+        div.excerpt= object.excerpt

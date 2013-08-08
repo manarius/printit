@@ -13,7 +13,7 @@ exports.list = function (req, res, next) {
             published: true
         };
     
-    Slot.find(where).populate('class', 'name slug').exec(function (err, slots) {
+    Slot.find(where).populate('class', 'name slug').sort('name').exec(function (err, slots) {
 
         if (!slots || slots.length <= 0) {
             next();
@@ -26,8 +26,7 @@ exports.list = function (req, res, next) {
 
 
 exports.single = function (req, res, next) {
-    var templateFile = path.join(req.app.get('theme'), 'shipgen', 'slots', 'single.html'),
-        Slot = req.app.plugins.shipgen.models.slot;
+    var Slot = req.app.plugins.shipgen.models.slot;
 
     Slot.findOne({slug: req.params.slug, published: true}).populate('class').exec(function (err, slot) {
         if (!slot) {
@@ -35,6 +34,6 @@ exports.single = function (req, res, next) {
             return;
         }
 
-        res.render(templateFile, {object: slot});
+        res.render(req.app.get('theme') + '/shipgen/slots/single', {object: slot});
     });
 }

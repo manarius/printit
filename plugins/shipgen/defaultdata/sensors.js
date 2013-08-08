@@ -5,7 +5,7 @@ module.exports = [
         slug: 'sensor_1',
         published: true,
         desc: 'this sensor is a bit better than Sensor 1. it still is pretty standard.',
-        excerpt: 'a bit better than Sensor 1..',
+        excerpt: 'The cheapest sensor on the market',
         range: 30,
         ecm: 1,
         eccm: 1,

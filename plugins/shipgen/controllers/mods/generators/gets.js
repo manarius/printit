@@ -12,6 +12,7 @@ exports.list = function (req, res, next) {
         };
 
     Generator.find(where).populate('class', 'name slug').exec(function (err, generators) {
+        console.log('generators = ', generators);
         if (!generators || generators.length <= 0) {
             next();
             return;

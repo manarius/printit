@@ -1,0 +1,26 @@
+extends ../../index
+
+block pageContent
+  article(class='object object-' + object.slug)
+    header
+      img(src='/img/slots/' + object.slug + '.png', alt= object.name + ' - ' + object.category, title= object.name + ' - ' + object.category)
+      dl.meta
+        dt Name:
+        dd= object.name
+        hr
+        dt Class:
+        dd
+          a(href='/shipgen/classes/' + object.class.slug)= object.class.name
+          
+        div.values
+          dl
+            dt Size
+            dd #{object.size} cm
+            hr
+            dt Cost
+            dd #{object.cost} pts
+            
+            div.excerpt= object.desc
+        
+    
+

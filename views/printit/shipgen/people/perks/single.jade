@@ -1,0 +1,46 @@
+extends ../../index
+
+
+block title
+  !{config.title}  - perk - !{object.name}
+
+block pageContent
+  article(class='object object-' + object.slug) 
+    header
+      img(src='/img/perks/' + object.slug + '.png', alt= object.name, title= object.name)
+      dl.meta 
+        dt Name:
+        dd= object.name
+        hr
+        dt Cost:
+        dd= object.cost
+        hr
+        dt CostMultiply:
+        dd= object.costMultiply
+        hr
+            
+    div.values 
+      dl
+      dt Strength:
+      dd= object.strength
+      hr
+
+      dt Aim:
+      dd= object.aim
+      hr
+
+      dt Initiative:
+      dd= object.initiative
+      hr
+
+      dt Morale:
+      dd= object.morale
+      hr
+  
+  
+    div.excerpt= object.desc
+  
+
+
+
+

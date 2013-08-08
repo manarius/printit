@@ -1,0 +1,59 @@
+extends ../../../index
+
+block title
+  !{config.title} - sensors
+
+block pageContent
+  if objects
+    for object in objects
+      article(class='object object-' + object.slug)
+        header
+          a(href='/shipgen/mods/sensors/' + object.slug)
+            img(src='/img/mods/sensors/' + object.slug + '.png',
+            alt= object.name + ' - ' + object.class.name + '-sensor',
+            title= object.name + ' - ' + object.class.name + '-sensor')
+
+          dl.meta
+            dt Name:
+            dd 
+              a(href='/shipgen/mods/sensors/' + object.slug)= object.name
+            hr
+
+            dt Class:
+            dd
+              a(href='/shipgen/classes/' + object.class.slug)= object.class.name
+            hr
+
+        div.values
+          dl.attributes
+            dt Size:
+            dd #{object.size} cm
+            hr
+            
+            dt Range:
+            dd #{object.range} cm
+            hr
+            
+            dt Ecm:
+            dd #{object.ecm} cm
+            hr
+            
+            dt Eccm:
+            dd= object.eccm
+            hr
+            
+            dt Consume:
+            dd= object.consume
+            hr
+            
+            dt Cost:
+            dd #{object.cost} pts
+            hr
+          
+          
+          div.excerpt= object.excerpt
+        
+    
+    
+
+

@@ -1,0 +1,63 @@
+extends ../index
+
+block pageContent
+  header welcome to the shipgen
+  
+  header Important Links:
+
+  nav
+    ul.shipgen-nav
+      li
+        a(href="/shipgen/ships") ships
+        | (#{counts.ships})
+
+      li
+        a(href="/shipgen/fleets") fleets
+        | (#{counts.fleets})
+      
+      li
+        a(href="/shipgen/classes") shipClasses
+        | (#{counts.classes})
+      
+      li
+        a(href="/shipgen/slots") slots
+        | (#{counts.slots})
+      
+      
+      ul.shipgen-nav-mods
+        lh
+          a(href="/shipgen/mods") mods
+        
+        li
+          a(href="/shipgen/mods/engines") engines
+          | (#{counts.engines})
+        
+        li
+          a(href="/shipgen/mods/weapons") weapons
+          | (#{counts.weapons})
+        
+        li
+          a(href="/shipgen/mods/shields") shields
+          | (#{counts.shields})
+        
+        li
+          a(href="/shipgen/mods/hulls") hulls
+          | (#{counts.hulls})
+        
+        li
+          a(href="/shipgen/mods/sensors") sensors
+          | (#{counts.sensors})
+        
+        li
+          a(href="/shipgen/mods/generators") generators
+          | (#{counts.generators})
+
+      ul.shipgen-people-mods
+        lh
+          a(href="/shipgen/people") people
+        li 
+          a(href="/shipgen/people/captains") captains
+          | (#{counts.captains})
+        li
+          a(href="/shipgen/people/crews") crews
+          | (#{counts.crews})

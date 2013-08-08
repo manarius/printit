@@ -1,0 +1,47 @@
+extends ../../index
+
+
+block title
+  !{config.title} - crew - !{object.name}
+
+block pageContent
+  article(class='object object-' + object.slug) 
+    header
+      img(src='/img/crews/' + object.slug + '.png', alt= object.name + ' - ' + object.category,title=object.name + ' - ' + object.category)
+      dl.meta 
+        dt Name:
+        dd= object.name
+        hr
+        dt Category:
+        dd= object.category
+        hr
+        dt Fleet:
+        dd
+          a(href='/shipgen/fleets/' + object.fleet.slug)= object.fleet.name
+        hr
+
+  
+    div.values 
+      dl
+        dt Strength:
+        dd= object.strength
+        hr
+
+        dt Aim:
+        dd= object.aim
+        hr
+
+        dt Initiative:
+        dd= object.initiative
+        hr
+
+        dt Morale:
+        dd= object.morale
+        hr
+
+    div.excerpt= object.excerpt
+    
+
+
+
+

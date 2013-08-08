@@ -1,0 +1,20 @@
+extends ../../index
+
+block title
+  !{config.title} - slots
+
+block pageContent
+  article(class='slot slot-' + #{slot.slug})
+
+    header= slot.name
+    img src='{{ship.img.url' alt='{{ship.img.alt  
+    div.content
+      header= slot.desc
+      dl
+        dt Size
+        dd= slot.size
+        dt Mod Type
+        dd= slot.modType
+        dt Costs
+        dd= slot.cost
+

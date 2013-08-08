@@ -23,10 +23,7 @@ module.exports = function createGenerator(models, i, dd, cb) {
         obj.desc = dd.desc;
         obj.excerpt = dd.excerpt;
 
-        obj.damage = dd.damage || 2;
-        obj.range = dd.range || 15;
-        obj.reload = dd.reload || 1;
-        obj.shots = dd.shots || 1;
+        obj.energy = dd.energy || 1;
 
         obj.size = dd.size || 1;
 

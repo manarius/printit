@@ -1,0 +1,11 @@
+extends ../index
+
+block pageContent
+  nav
+    ul
+      for item in menu
+        li
+          a(href= item.url)= item.text
+  
+  div.ruleset
+    block ruleset

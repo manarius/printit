@@ -1,0 +1,50 @@
+extends ../../../index
+
+block title
+  !{config.title} - engine
+
+block pageContent
+  article(class='object object-' + object.slug)
+    header
+      a(href='/shipgen/mods/engines/' + object.slug)
+        img(src='/img/mods/engines/' + object.slug + '.png',
+            alt= object.name + ' - ' + object.class.name + '-engine',
+            title= object.name + ' - ' + object.class.name + '-engine')
+
+      dl.meta
+        dt Name:
+        dd 
+          a(href='/shipgen/mods/engines/' + object.slug)= object.name
+        hr
+
+        dt Class:
+        dd 
+          a(href='/shipgen/classes/' + object.class.slug)= object.class.name
+
+    div.values
+      dl.attributes
+        dt Size:
+        dd #{object.size} cm
+        hr
+        
+        dt Speed:
+        dd #{object.speed} cm
+        hr
+        
+        dt Accel:
+        dd #{object.accel} cm
+        hr
+        
+        dt Consume:
+        dd= object.consume
+        hr
+        
+        dt Cost:
+        dd #{object.cost} pts
+        hr
+    
+    
+    div.excerpt= object.desc
+
+
+

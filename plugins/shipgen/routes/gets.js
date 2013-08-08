@@ -51,8 +51,11 @@ module.exports = function (app) {
     
     app.get(shipgendir + '/mods/sensors', controllers.mods.sensors.gets.list);
     app.get(shipgendir + '/mods/sensors/:slug', controllers.mods.sensors.gets.single);
+    
+    app.get(shipgendir + '/mods/generators', controllers.mods.generators.gets.list);
+    app.get(shipgendir + '/mods/generators/:slug', controllers.mods.generators.gets.single);
 
     //~ app.get(shipgendir + '/:collection/:slug', controllers.gets.single);
-    
+
     app.get(shipgendir, controllers.gets.index);
 };

@@ -17,16 +17,15 @@ exports.list = function (req, res, next) {
             return;
         }
         
-        res.render(req.app.get('theme') + '/shipgen/fleets/list.html', {objects: fleets});
+        res.render(req.app.get('theme') + '/shipgen/fleets/list', {objects: fleets});
     });
 };
 
 
 exports.single = function (req, res, next) {
     var Fleet = req.app.plugins.shipgen.models.fleet,
-        Ship = req.app.plugins.shipgen.models.ship,
-        Crew = req.app.plugins.shipgen.models.people.crew,
-        templateFile = path.join(req.app.get('theme'), 'shipgen', 'fleets', 'single.html');
+        Frame = req.app.plugins.shipgen.models.frame,
+        Crew = req.app.plugins.shipgen.models.people.crew;
 
     Fleet.findOne({slug: req.params.slug, published: true}).exec(function (err, fleet) {
         if (!fleet) {
@@ -34,13 +33,13 @@ exports.single = function (req, res, next) {
             return;
         }
         
-        Ship.find({'fleet': fleet._id})
-            .exec(function (err, ships) {
-                
+        Frame.find({'fleet': fleet._id})
+            .exec(function (err, frames) {
+
             Crew.find({'fleet': fleet._id})
                 .exec(function (err, crews) {
-                    
-                res.render(templateFile, {object: fleet, ships: ships, crews: crews});
+                
+                res.render(req.app.get('theme') + '/shipgen/fleets/single', {object: fleet, frames: frames, crews: crews});
             });
         });
     });

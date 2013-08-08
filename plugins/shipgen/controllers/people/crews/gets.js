@@ -15,8 +15,7 @@ exports.list = function (req, res, next) {
         where.category = req.params.categorySlug;
     }
     
-    
-    Crew.find(where).populate('fleet', 'name slug').exec(function (err, crews) {
+    Crew.find(where).populate('fleet', 'name slug').sort('fleet').exec(function (err, crews) {
 
         if (!crews || crews.length <= 0) {
             next();

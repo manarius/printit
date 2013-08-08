@@ -1,7 +1,7 @@
 One Game Turn:
 
 <dl>
-    <dt>Torpedophase</dt>
+    <dt>Torpedophase / AI - phase</dt>
     <dd>The players move all torpedoes, rockets and mines that remain from previous turns.</dd>
     
     <dt>Movementphase</dt>

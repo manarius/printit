@@ -46,13 +46,13 @@ module.exports = {
                 
                 if (exists) {
                     load(path.join(p, 'config')/*, {verbose: true}*/)
-                        .then(path.join(p, 'models/class.js'))
-                        .then(path.join(p, 'models/slot.js'))
+                        .then(path.join(p, 'models/class'))
+                        .then(path.join(p, 'models/slot'))
                         .then(path.join(p, 'models/mods'))
                         .then(path.join(p, 'models/meta'))
-                        .then(path.join(p, 'models/fleet.js'))
+                        .then(path.join(p, 'models/fleet'))
                         .then(path.join(p, 'models/people'))
-                        .then(path.join(p, 'models/ship.js'))
+                        .then(path.join(p, 'models/ship'))
                         .then(path.join(p, 'models'))
                         .then(path.join(p, 'controllers'))
                         .then(path.join(p, 'routes'))

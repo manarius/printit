@@ -1,0 +1,46 @@
+extends ../../../index
+  
+block pageContent
+  article(class='object object-' + object.slug)
+    header    
+      img(src='/img/mods/hulls/' + object.slug + '.png',
+          alt= object.name + ' - ' + object.class.name + '-hull',
+          title= object.name + ' - ' + object.class.name + '-hull')
+    
+      dl.meta
+        dt Name:
+        dd 
+          a(href='/shipgen/mods/hulls/' + object.slug)= object.name
+        hr
+  
+        dt Class:
+        dd
+          a(href='/shipgen/classes/' + object.class.slug)= object.class.name
+        hr
+      
+    
+    
+    div.values
+      dl.attributes
+        dt Size:
+        dd #{object.size} cm
+        hr
+        
+        dt Armor:
+        dd #{object.armor} cm
+        hr
+        
+        dt Repair:
+        dd #{object.repair} cm
+        hr
+        
+        dt Cost:
+        dd #{object.cost} pts
+        hr
+    
+    
+      div.excerpt= object.desc
+    
+    
+    
+    

@@ -9,13 +9,13 @@ var fs = require('fs'),
 describe('TemplateFilesExist', function () {
     it('should return true if the template exists', function () {
 
-        fs.exists(path.join(templatePath, "layout.html"), function (exists) {
+        fs.exists(path.join(templatePath, "layout.jade"), function (exists) {
             exists.should.equal(true);
         });
-        fs.exists(path.join(templatePath, "pages", "fourohfour.html"), function (exists) {
+        fs.exists(path.join(templatePath, "pages", "fourohfour.jade"), function (exists) {
             exists.should.equal(true);
         });
-        fs.exists(path.join(templatePath, "pages", "home.html"), function (exists) {
+        fs.exists(path.join(templatePath, "pages", "home.jade"), function (exists) {
             exists.should.equal(true);
         });
     });

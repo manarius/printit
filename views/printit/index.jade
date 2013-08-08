@@ -1,0 +1,112 @@
+extends ../layout
+
+block head
+  title
+    block title
+     | #{config.title} - #{config.branding}
+
+  meta(http-equiv="Content-type", content="text/html; charset=utf-8")
+  
+  link(rel="stylesheet", type="text/css", href= '/css/main.css')
+  
+  block opengraphdata
+    meta(property="og:title", content= config.name + ' - ' + config.branding)
+    meta(property="og:type", content="website")
+    meta(property="og:url", content= config.protocol + config.url)
+    meta(property="og:image", content= config.protocol + config.url + '/img/logo.png')
+
+
+block body
+  header(class="main")
+    div#logo
+      if config && config.logo
+        a(href="/")
+          img( src= config.protocol + config.url + config.logo, height="60", width="60", alt= config.title, title=config.title)
+          
+      else
+        a(href="/")= config.title
+        span= config.branding
+  
+    nav
+      ul
+        li
+          a(href="/") home
+        li
+          a(href="/shipgen/") shipgen
+        li
+          a(href="/doc/") doc
+        li
+          a(href="/rules/") rules
+
+  div#container  
+    div#content
+
+      div.content
+        block pageTitle
+        block pageContent
+
+      block aside
+        aside.main
+          header Important Links:
+      
+          nav
+            ul.shipgen-nav
+                li
+                  a(href="/shipgen/frames") frames
+                li
+                  a(href="/shipgen/fleets") fleets
+                
+                li
+                  a(href="/shipgen/classes") classes
+                
+                
+                li
+                  a(href="/shipgen/slots") slots
+                
+                
+                ul.shipgen-nav-mods
+                    
+                  lh
+                    a(href="/shipgen/mods") mods
+                    
+                  li
+                    a(href="/shipgen/mods/engines") engines
+                    
+                  li 
+                    a(href="/shipgen/mods/weapons") weapons
+                    
+                  li
+                    a(href="/shipgen/mods/shields") shields
+                    
+                  li
+                    a(href="/shipgen/mods/hulls") hulls
+                    
+                  li
+                    a(href="/shipgen/mods/sensors") sensors
+                    
+                  li
+                    a(href="/shipgen/mods/generators") generators
+                
+                ul.shipgen-people-mods
+
+                  lh
+                    a(href="/shipgen/people") people
+                  li
+                    a(href="/shipgen/people/captains") captains
+                  li
+                    a(href="/shipgen/people/crews") crews
+                  li
+                    a(href="/shipgen/people/perks") perks
+          
+      footer
+        block pageFooter
+    
+    block footer
+      footer.main
+        block footer_content
+        
+        nav
+          ul
+            li
+              a(href="/impressum") impressum
+  block js

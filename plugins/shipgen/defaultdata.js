@@ -35,6 +35,7 @@ module.exports = {
         engines: require('./defaultdata/engines.js'),
         hulls: require('./defaultdata/hulls.js'),
         sensors: require('./defaultdata/sensors.js'),
+        generators: require('./defaultdata/generators.js'),
         createEngine: require('./defaultdata/create/mods/engine.js'),
         createHull: require('./defaultdata/create/mods/hull.js'),
         createShield: require('./defaultdata/create/mods/shield.js'),

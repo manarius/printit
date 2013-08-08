@@ -16,7 +16,7 @@
     //click the button on this page to setup the pages
     
     http://localhost:2323/shipgen/setup
-    //click the button on this page to create crews, ships, shipclasses and fleets. more coming soon.
+    //click the button on this page to create crews, ships, shipclasses, modules and fleets. more coming soon.
     
     //load
     http://localhost:2323/shipgen
@@ -33,7 +33,7 @@ every- and anyone will be able to create 3d models using any tool that exports d
 then upload them and create rules and lore for them, 
 keeping the galaxy constantly growing and changing.
 
-once the models have been checked by us they will be included into the official release,
+once the models have been checked (mainly for copyright infringement) by us they will be included into the official release,
 enabling any- and everyone
 to print that model using a 3d-printer, for example [this one](http://store.makerbot.com/replicator2.html), [this one](http://cubify.com/cube/) or [this one](https://grrf.de/de/catalog/3d-drucker-protos-x400/grrf-protos-x400) or [this one](http://cb-printer.com/en/shop/3d-printer-cb-printer-com/).
 
@@ -46,8 +46,8 @@ and isnt that what we all want?
 this will be the first game that enables YOU to play with YOUR models.
 if you cant or dont want to build models yourself,
 you will at least have chosen them from a collection of models that you could adapt and still can after printing them.
-want a new gun? just takes 10 minutes to print it, then stick it onto your model.
-want a new ship? well, in about an hour you have it.
+want a new gun? just takes 5 minutes to print it, then stick it onto your model.
+want a new ship? well, in about 20 minutes to an hour you have it.
 you can take existing spaceship designs and expand on them, change them and let them evolve,
 nobody can stop your imagination and nobody can tell you what to buy.
 

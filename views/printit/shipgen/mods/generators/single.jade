@@ -1,0 +1,41 @@
+extends ../../../index
+
+block pageContent
+  article(class='object object-' + object.slug)
+    header
+      img(src='/img/mods/generators/' + object.slug + '.png',
+          alt= object.name + ' - ' + object.class.name + '-generator',
+          title= object.name + ' - ' + object.class.name + '-generator')
+
+      dl.meta
+        dt Name:
+        dd
+          a(href='/shipgen/mods/generators/' + object.slug)= object.name
+        hr
+
+        dt Class:
+        dd
+          a(href='/shipgen/classes/' + object.class.slug)= object.class.name
+        hr
+      
+      
+
+    div.values
+      dl.attributes
+        dt Size:
+        dd #{object.size} cm
+        hr
+        
+        dt Energy:
+        dd= object.energy
+        hr
+        
+        dt Cost:
+        dd #{object.cost} pts
+        hr
+    
+        
+      div.excerpt= object.desc
+    
+
+

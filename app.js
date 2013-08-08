@@ -9,8 +9,6 @@
 var express = require('express'),
     fs = require('fs'),
     load = require('express-load'),
-    cons = require('consolidate'),
-    swig = require('swig'),
     stylus = require('stylus'),
     path = require('path'),
     async = require('async'),
@@ -28,7 +26,7 @@ async.waterfall([
         app.rootDir = __dirname;
         
         mongoose.connect('mongodb://localhost/shipgen');
-        
+
         app.Schema = mongoose.Schema;              // init jugglingdb
         //~ app.schema = new app.Schema('mongodb', {port: 27017});
         

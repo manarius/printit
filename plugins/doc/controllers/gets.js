@@ -2,8 +2,7 @@
 
 var path = require('path'),
     fs = require('fs'),
-    md = require('node-markdown').Markdown,
-    swig = require('swig');
+    md = require('node-markdown').Markdown;
 
 exports.docdir = function (req, res) {
     var docRootUrl = req.app.plugins.doc.config[req.app.get('env')].rootUrl,
@@ -19,7 +18,7 @@ exports.docdir = function (req, res) {
             menu.push( { url: '/doc/' + file, text: file});
         }
 
-        res.render(req.app.get('theme') + '/' + docRootUrl + '/' + 'doc_static.html', {menu: menu});
+        res.render(req.app.get('theme') + '/' + docRootUrl + '/' + 'doc_static', {menu: menu});
     }); 
 }
 
@@ -47,7 +46,7 @@ exports.doc = function (req, res, next) {
             
             var md_html = md(file);
 
-            res.render(req.app.get('theme') + '/' + docRootUrl + '/' + 'doc_static.html', {md: md_html, menu: menu});
+            res.render(req.app.get('theme') + '/' + docRootUrl + '/' + 'doc_static.jade', {md: md_html, menu: menu});
         });
     });
 }
@@ -67,7 +66,7 @@ exports.rulesIndex = function (req,res,next) {
             menu.push( { url: '/rules/' + file, text: file});
         }
 
-        res.render(req.app.get('theme') + '/rules/' + 'rule_index.html', {menu: menu});
+        res.render(req.app.get('theme') + '/rules/' + 'rule_index.jade', {menu: menu});
     }); 
 }
 
@@ -80,7 +79,7 @@ exports.rule = function (req, res, next) {
         var menu = [],
             i = 0,
             file = '',
-            htmlFileName = path.join(docRootDir, req.params.docSlug + '.html');
+            htmlFileName = path.join(docRootDir, req.params.docSlug + '.jade');
 
         for (i=0; i < files.length; i = i + 1) {
             file = files[i].split('.')[0];
@@ -95,7 +94,7 @@ exports.rule = function (req, res, next) {
                 return;
             }
             
-            res.render(ruleDir + 'rule_static.html', {fileName: ruleDir + '/files/' + req.params.docSlug + '.html', menu: menu});
+            res.render(ruleDir + '/files/' + req.params.docSlug, {menu: menu});
         });
     });
 }

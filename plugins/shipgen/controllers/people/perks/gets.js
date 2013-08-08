@@ -16,7 +16,7 @@ exports.list = function (req, res, next) {
     }
     
     
-    Perk.find(where).exec(function (err, perks) {
+    Perk.find(where).sort('cost').exec(function (err, perks) {
 
         if (err || !perks || perks.length <= 0) {
             next();

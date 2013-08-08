@@ -1,0 +1,8 @@
+extends ../index.jade
+
+block pageContent
+  nav
+    ul
+      for item in menu
+        li
+          a(href= item.url)= item.text

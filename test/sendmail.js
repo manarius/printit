@@ -5,7 +5,6 @@
 var fs = require('fs'),
     path = require('path'),
     should = require('should'),
-    form = require('express-form'),
     config = require(path.join(__dirname, '..', 'config', 'development')),
     mail = require(path.join(__dirname, '..', 'lib', 'mail')),
     mailform = {

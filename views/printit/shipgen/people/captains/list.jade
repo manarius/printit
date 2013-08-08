@@ -1,0 +1,58 @@
+extends ../../index
+
+block title
+  !{config.title} - crews
+
+block pageContent
+  for object in objects
+    article(class='object object-' + object.slug)
+      header
+        a(href='/shipgen/people/captains/' + object.slug)
+          img(src='/img/people/captains/' + object.slug + '.png', 
+              alt= object.name, 
+              title= object.name)
+
+        dl.meta
+          dt Name:
+          dd
+            a(href='/shipgen/people/captains/' + object.slug)= object.name
+          hr
+
+          dt Category:
+          dd= object.category
+          hr
+
+          dt Fleet:
+          dd
+            a(href='/shipgen/fleets/' + object.fleet.slug)= object.fleet.name
+          hr
+
+      div.values 
+        dl.attributes
+          dt Strength:
+          dd= object.strength
+          hr
+
+          dt Aim:
+          dd= object.aim
+          hr
+          
+          dt Initiative:
+          dd= object.initiative
+          hr
+          
+          dt Morale:
+          dd= object.morale
+          hr
+      
+        
+      div.excerpt= object.excerpt
+      
+      if object.perks
+        footer
+          div.perks 
+            ul
+            lh Perks:
+            for perk in object.perks
+              li
+                a(href='/shipgen/people/perks/' + perk.slug)= perk.name

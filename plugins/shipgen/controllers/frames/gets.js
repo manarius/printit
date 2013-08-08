@@ -18,7 +18,7 @@ exports.list = function (req, res, next) {
         where.category = req.params.categorySlug;
     }
 
-    Frame.find(where).populate('class fleet', 'name slug').exec(function (err, frames) {
+    Frame.find(where).populate('class fleet', 'name slug').sort('fleet').exec(function (err, frames) {
 
         if (!frames || frames.length <= 0) {
             next();
@@ -31,8 +31,7 @@ exports.list = function (req, res, next) {
 
 
 exports.single = function (req, res, next) {
-    var frameTemplateFile = path.join(req.app.get('theme'), 'shipgen', 'frames', 'single.html'),
-        Frame = req.app.plugins.shipgen.models.frame;
+    var Frame = req.app.plugins.shipgen.models.frame;
 
     Frame.findOne({slug: req.params.slug, published: true})
         .populate('class fleet', 'name slug')
@@ -43,14 +42,7 @@ exports.single = function (req, res, next) {
             next();
             return;
         }
-        
-        fs.exists(path.join(req.app.get('views'), frameTemplateFile), function (exists) {
 
-            if (!exists) {
-                next();
-            } else {
-                res.render(frameTemplateFile, {object: frame});
-            }
-        });
+        res.render(req.app.get('theme') + '/shipgen/frames/single', {object: frame});
     });
 }

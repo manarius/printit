@@ -71,7 +71,7 @@ exports.setup = function (req, res, next) {
         createPage(req.app.models.page, defaultdata.pages[i]);
     }
 
-    res.render(req.app.get('theme') + '/pages/setup.html', {errs: errs, completed: true});
+    res.render(req.app.get('theme') + '/pages/setup', {errs: errs, completed: true});
 };
 
 
@@ -86,6 +86,6 @@ exports.deleteAll = function (req, res) {
             });
         }
     ], function() { //runs after all functions above ran.
-        res.render(req.app.get('theme') + '/pages/deleteAll.html', {completed: true});
+        res.render(req.app.get('theme') + '/pages/deleteAll', {completed: true});
     });
 };
