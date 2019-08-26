@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "app.js",
-    "testenv": "nodemon app.js -e js,styl,html,jade --debug"
+    "testenv": "nodemon app.js -e js,styl,html,jade --debug",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "express": "latest",
@@ -16,10 +18,12 @@
     "mongoose": "latest",
     "express-slash": "latest",
     "node-markdown": "latest",
-    "async": "latest"
+    "async": "latest",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "mocha": "latest",
     "should": "latest"
-  }
+  },
+  "snyk": true
 }
