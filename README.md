@@ -1,7 +1,7 @@
-###printit. games that matter.
-#####making games as free as they should be.
+### printit. games that matter.
+##### making games as free as they should be.
 
-#####install:
+##### install:
     git clone https://github.com/manarius/printit
     
     npm install
@@ -23,7 +23,7 @@
     
     //enjoy
     
-#####what is this printit stuff about?
+##### what is this printit stuff about?
 
 we will create a ruleset for space battles (at first), 
 playing in a galaxy of vast undiscovered space.
